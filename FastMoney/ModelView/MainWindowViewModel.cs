@@ -28,6 +28,12 @@ namespace FastMoney.ModelView
         private readonly Page _TransferPage = new View.Pages.TransferPage();
         public Page TransferPage { get => _TransferPage; }
         #endregion
+
+        #region InfoTextForExpander
+        private string _InfoTextForExpander = "asd";
+
+        public string InfoTextForExpander { get => _InfoTextForExpander; } 
+        #endregion
         #endregion
 
         #region Commands

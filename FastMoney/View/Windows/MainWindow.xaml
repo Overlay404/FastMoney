@@ -86,14 +86,31 @@
         <!--#endregion-->
 
         <Frame x:Name="frame" NavigationUIVisibility="Hidden" Grid.Column="3" Grid.Row="1" Margin="0,67,25,25" Source="../Pages/MainPage.xaml"/>
+        
+        <!--#region Профиль пользователя -->
         <Border    Grid.Column="1" Grid.Row="1" 
                    VerticalAlignment="Top"
                    MinHeight="86"
                    MaxHeight="300"
                    BorderBrush="Black"
                    CornerRadius="10" BorderThickness="1"
-                   Background="White" Margin="0,67,0,0"/>
+                   Background="White" Margin="0,67,0,0">
+            <DockPanel>
+                <StackPanel Orientation="Horizontal">
+                    <fa:ImageAwesome Icon="Regular_User" Width="30" HorizontalAlignment="Left" Panel.ZIndex="1" Margin="40 0 0 0"/>
+                    <Ellipse Width="50" Height="50" Fill="#FFC8C8C8" Margin="-40 0 0 0"/>
+                    <StackPanel>
+                        <!--Сюда-->
+                        <TextBlock Text="Name" Margin="10 20 0 0" FontSize="12"/>
+                        <TextBlock Text="Профиль" Margin="10 8 0 0" FontSize="12"/>
+                    </StackPanel>
+                </StackPanel>
+                <fa:ImageAwesome Icon="Solid_Gear" Width="20" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 15 15 0"/>
+            </DockPanel>
+        </Border>
+        <!--#endregion-->
 
+        <!--#region разделы пользователя -->
         <Border    Grid.Column="1" Grid.Row="1" 
                    VerticalAlignment="Bottom"
                    MinHeight="394"
@@ -101,6 +118,59 @@
                    BorderBrush="Black"
                    CornerRadius="10" BorderThickness="1"
                    Background="White" Margin="0,0,0,25">
+            <StackPanel>
+                <!--#region Раздел кошелёк -->
+                <Expander Header="Кошелёк" FontSize="16" Margin="10" IsExpanded="True">
+                    <StackPanel>
+                        <ListView x:Name="walletList" BorderBrush="#00000000" MaxHeight="120" d:ItemsSource="{d:SampleData ItemCount=3}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="8 20 0 0" Orientation="Horizontal">
+                                    <fa:ImageAwesome Icon="Regular_CreditCard" Width="35"/>
+                                    <!--Сюда-->
+                                    <TextBlock Text="00,0Р" Margin="10 3 0 0" FontSize="14"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    </StackPanel>
+                </Expander>
+                <!--#endregion-->
+                <!--#region раздел вклады -->
+                <Expander Header="Вклады" FontSize="16" Margin="10" IsExpanded="True">
+                    <ListView BorderBrush="#00000000" MaxHeight="120">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="8 20 0 0" Orientation="Horizontal">
+                                    <fa:ImageAwesome Icon="Regular_CreditCard" Width="35"/>
+                                    <!--Сюда-->
+                                    <TextBlock Text="00,0Р" Margin="10 3 0 0" FontSize="14"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Expander>
+                <!--#endregion-->
+                <!--#region раздел кредиты -->
+                <Expander Header="Кредиты" FontSize="16" Margin="10" IsExpanded="True">
+                    <ListView BorderBrush="#00000000" MaxHeight="120">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="8 20 0 0" Orientation="Horizontal">
+                                    <fa:ImageAwesome Icon="Regular_CreditCard" Width="35"/>
+                                    <StackPanel>
+                                        <TextBlock Text="Осталось выплатить" FontSize="10" Foreground="#4D4D4D" Margin="10 0 0 0"/>
+                                        <!--Сюда-->
+                                        <TextBlock Text="00,0Р" Margin="10 0 0 0" FontSize="14"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Expander>
+                <!--#endregion-->
+            </StackPanel>
         </Border>
+        <!--#endregion-->
     </Grid>
 </Window>

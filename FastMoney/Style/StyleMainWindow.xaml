@@ -10,7 +10,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="RadioButton">
                     <StackPanel Width="70">
-                        <TextBlock Text="Главная" Margin="5 11 5 0" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Главная" Margin="5 11 5 0" HorizontalAlignment="Center" FontSize="14"/>
                     </StackPanel>
                 </ControlTemplate>
             </Setter.Value>
@@ -21,7 +21,7 @@
                     <Setter.Value>
                         <ControlTemplate TargetType="RadioButton">
                             <StackPanel>
-                                <TextBlock Text="Главная" Margin="5 11 5 0" HorizontalAlignment="Center"/>
+                                <TextBlock Text="Главная" Margin="5 11 5 0" HorizontalAlignment="Center" FontSize="14"/>
                                 <Rectangle  Width="70" Stroke="Black" Margin="0 0 0 -3" Height="2"/>
                             </StackPanel>
                         </ControlTemplate>
@@ -33,7 +33,7 @@
                     <Setter.Value>
                         <ControlTemplate TargetType="RadioButton">
                             <StackPanel>
-                                <TextBlock Text="Главная" Margin="5 11 5 0" HorizontalAlignment="Center"/>
+                                <TextBlock Text="Главная" Margin="5 11 5 0" HorizontalAlignment="Center" FontSize="14"/>
                                 <Rectangle  Width="70" Stroke="#FF737373" Margin="0 0 0 -3" Height="2"/>
                             </StackPanel>
                         </ControlTemplate>
@@ -50,7 +50,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="RadioButton">
                     <StackPanel Width="70">
-                        <TextBlock Text="Платежи" Margin="5 11 5 0" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Платежи" Margin="5 11 5 0" HorizontalAlignment="Center" FontSize="14"/>
                     </StackPanel>
                 </ControlTemplate>
             </Setter.Value>
@@ -61,7 +61,7 @@
                     <Setter.Value>
                         <ControlTemplate TargetType="RadioButton">
                             <StackPanel>
-                                <TextBlock Text="Платежи" Margin="5 11 5 0"  HorizontalAlignment="Center"/>
+                                <TextBlock Text="Платежи" Margin="5 11 5 0"  HorizontalAlignment="Center" FontSize="14"/>
                                 <Rectangle  Width="70" Stroke="Black" Margin="0 0 0 -3" Height="2"/>
                             </StackPanel>
                         </ControlTemplate>
@@ -73,7 +73,7 @@
                     <Setter.Value>
                         <ControlTemplate TargetType="RadioButton">
                             <StackPanel>
-                                <TextBlock Text="Платежи" Margin="5 11 5 0"  HorizontalAlignment="Center"/>
+                                <TextBlock Text="Платежи" Margin="5 11 5 0"  HorizontalAlignment="Center" FontSize="14"/>
                                 <Rectangle  Width="70" Stroke="#FF737373" Margin="0 0 0 -3" Height="2"/>
                             </StackPanel>
                         </ControlTemplate>
@@ -91,7 +91,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="RadioButton">
                     <StackPanel Width="70">
-                        <TextBlock Text="Переводы" Margin="5 11 5 0" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Переводы" Margin="0 11 0 0" HorizontalAlignment="Center" FontSize="14"/>
                     </StackPanel>
                 </ControlTemplate>
             </Setter.Value>
@@ -102,7 +102,7 @@
                     <Setter.Value>
                         <ControlTemplate TargetType="RadioButton">
                             <StackPanel>
-                                <TextBlock Text="Переводы" Margin="5 11 5 0" HorizontalAlignment="Center"/>
+                                <TextBlock Text="Переводы" Margin="0 11 0 0" HorizontalAlignment="Center" FontSize="14"/>
                                 <Rectangle  Width="70" Stroke="Black" Margin="0 0 0 -3" Height="2"/>
                             </StackPanel>
                         </ControlTemplate>
@@ -114,7 +114,7 @@
                     <Setter.Value>
                         <ControlTemplate TargetType="RadioButton">
                             <StackPanel>
-                                <TextBlock Text="Переводы" Margin="5 11 5 0" HorizontalAlignment="Center"/>
+                                <TextBlock Text="Переводы" Margin="0 11 0 0" HorizontalAlignment="Center" FontSize="14"/>
                                 <Rectangle  Width="70" Stroke="#FF737373" Margin="0 0 0 -3" Height="2"/>
                             </StackPanel>
                         </ControlTemplate>
