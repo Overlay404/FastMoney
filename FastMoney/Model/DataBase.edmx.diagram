@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="827dd7389e0b450aa64c83a1abaffdab" Name="Diagram1">
+        <EntityTypeShape EntityType="FastMoneyModel.Card" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FastMoneyModel.Credit" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FastMoneyModel.Deposit" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FastMoneyModel.Operation" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FastMoneyModel.Role" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FastMoneyModel.User" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="FastMoneyModel.FK_Card_User" ManuallyRouted="false" />
+        <AssociationConnector Association="FastMoneyModel.FK_Credit_User" ManuallyRouted="false" />
+        <AssociationConnector Association="FastMoneyModel.FK_Deposit_User" ManuallyRouted="false" />
+        <AssociationConnector Association="FastMoneyModel.FK_Operation_User" ManuallyRouted="false" />
+        <AssociationConnector Association="FastMoneyModel.FK_Operation_User1" ManuallyRouted="false" />
+        <AssociationConnector Association="FastMoneyModel.FK_User_Role" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,10 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\FastMoney",
-    "\\FastMoney\\View",
-    "\\FastMoney\\View\\Windows"
+    ""
   ],
-  "SelectedNode": "\\FastMoney\\View\\Windows\\MainWindow.xaml",
+  "SelectedNode": "\\FastMoney.sln",
   "PreviewInSolutionExplorer": false
 }

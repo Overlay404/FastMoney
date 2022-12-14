@@ -1,7 +1,9 @@
-﻿using System;
+﻿using FastMoney.Model;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,5 +15,16 @@ namespace FastMoney
     /// </summary>
     public partial class App : Application
     {
+
+        public static FastMoneyEntities db = new FastMoneyEntities();
+
+
+        public static User user = App.db.User.FirstOrDefault();
+
+        public App()
+        {
+            App.db.User.Load();
+            App.db.Role.Load();
+        }
     }
 }

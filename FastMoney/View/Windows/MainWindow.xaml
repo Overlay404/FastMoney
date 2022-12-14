@@ -100,8 +100,7 @@
                     <fa:ImageAwesome Icon="Regular_User" Width="30" HorizontalAlignment="Left" Panel.ZIndex="1" Margin="40 0 0 0"/>
                     <Ellipse Width="50" Height="50" Fill="#FFC8C8C8" Margin="-40 0 0 0"/>
                     <StackPanel>
-                        <!--Сюда-->
-                        <TextBlock Text="Name" Margin="10 20 0 0" FontSize="12"/>
+                        <TextBlock Text="{Binding NameClient}" Margin="10 20 0 0" FontSize="12"/>
                         <TextBlock Text="Профиль" Margin="10 8 0 0" FontSize="12"/>
                     </StackPanel>
                 </StackPanel>

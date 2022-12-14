@@ -29,10 +29,10 @@ namespace FastMoney.ModelView
         public Page TransferPage { get => _TransferPage; }
         #endregion
 
-        #region InfoTextForExpander
-        private string _InfoTextForExpander = "asd";
+        #region NameClient
+        private string _NameClient = App.user.FullName;
 
-        public string InfoTextForExpander { get => _InfoTextForExpander; } 
+        public string NameClient { get => _NameClient; set => Set(ref _NameClient, value); } 
         #endregion
         #endregion
 
