@@ -38,6 +38,7 @@
     <EntitySetMapping Name="Operation">
       <EntityTypeMapping TypeName="FastMoneyModel.Operation">
         <MappingFragment StoreEntitySet="Operation">
+          <ScalarProperty Name="date" ColumnName="date" />
           <ScalarProperty Name="operation1" ColumnName="operation" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="icon" ColumnName="icon" />

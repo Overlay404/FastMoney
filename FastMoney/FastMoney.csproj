@@ -100,11 +100,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Classes\OperationList.cs" />
     <Compile Include="Commands\Base\Command.cs" />
     <Compile Include="Commands\CloseApplicationCommand.cs" />
     <Compile Include="Commands\LambdaCommand.cs" />
     <Compile Include="Commands\MinimazeWindowCommand.cs" />
     <Compile Include="ModelView\Base\ViewModel.cs" />
+    <Compile Include="ModelView\MainPageViewModel.cs" />
     <Compile Include="ModelView\MainWindowViewModel.cs" />
     <Compile Include="Model\Card.cs">
       <DependentUpon>DataBase.tt</DependentUpon>

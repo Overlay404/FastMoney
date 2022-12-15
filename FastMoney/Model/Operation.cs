@@ -20,6 +20,7 @@ namespace FastMoney.Model
         public string icon { get; set; }
         public Nullable<int> UserId { get; set; }
         public string operation1 { get; set; }
+        public Nullable<System.DateTime> date { get; set; }
     
         public virtual User User { get; set; }
     }

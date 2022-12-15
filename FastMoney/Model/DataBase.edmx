@@ -46,6 +46,7 @@
           <Property Name="icon" Type="nvarchar" MaxLength="50" />
           <Property Name="UserId" Type="int" />
           <Property Name="operation" Type="nvarchar" MaxLength="50" />
+          <Property Name="date" Type="smalldatetime" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -231,6 +232,7 @@
           <Property Name="UserId" Type="Int32" />
           <Property Name="operation1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="User" Relationship="FastMoneyModel.FK_Operation_User" FromRole="Operation" ToRole="User" />
+          <Property Name="date" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -360,6 +362,7 @@
           <EntitySetMapping Name="Operation">
             <EntityTypeMapping TypeName="FastMoneyModel.Operation">
               <MappingFragment StoreEntitySet="Operation">
+                <ScalarProperty Name="date" ColumnName="date" />
                 <ScalarProperty Name="operation1" ColumnName="operation" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="icon" ColumnName="icon" />
