@@ -21,7 +21,6 @@ namespace FastMoney.Model
             this.Credit = new HashSet<Credit>();
             this.Deposit = new HashSet<Deposit>();
             this.Operation = new HashSet<Operation>();
-            this.Operation1 = new HashSet<Operation>();
         }
     
         public int id { get; set; }
@@ -40,8 +39,6 @@ namespace FastMoney.Model
         public virtual ICollection<Deposit> Deposit { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Operation> Operation { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Operation> Operation1 { get; set; }
         public virtual Role Role { get; set; }
     }
 }

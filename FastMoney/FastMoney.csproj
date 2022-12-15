@@ -139,6 +139,9 @@
     <Compile Include="Model\User.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
+    <Compile Include="Partial\Credit.Extension.cs" />
+    <Compile Include="Partial\Deposit.Extension.cs" />
+    <Compile Include="Partial\Operation.Extension.cs" />
     <Compile Include="Partial\User.Extension.cs" />
     <Compile Include="View\Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -180,6 +183,7 @@
       <DependentUpon>DataBase.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <Compile Include="Partial\Card.Extension.cs" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

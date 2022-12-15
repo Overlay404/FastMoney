@@ -124,5 +124,17 @@
         </Style.Triggers>
     </Style>
     <!--#endregion-->
-    
+
+    <Style TargetType="ListBoxItem">
+        <Setter Property="IsEnabled" Value="False"/>
+    </Style>
+
+    <Style TargetType="Border" x:Key="BorderNavigate">
+        <Setter Property="Background" Value="White"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#FFF1F1F1"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>

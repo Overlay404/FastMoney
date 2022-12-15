@@ -18,7 +18,7 @@
         </Grid.ColumnDefinitions>
         <Border BorderBrush="Black" BorderThickness="1" 
                 VerticalAlignment="Top" CornerRadius="10"
-                Background="White" MinHeight="106">
+                Style="{StaticResource BorderNavigate}" MinHeight="106">
             <StackPanel Margin="0 25 0 0">
                 <fa:ImageAwesome Icon="Solid_Wallet" Width="25" PrimaryColor="#FF4C4C4C"/>
                 <TextBlock Text="Платежи" HorizontalAlignment="Center" FontSize="14"/>
@@ -26,7 +26,7 @@
         </Border>
         <Border BorderBrush="Black" BorderThickness="1" 
                 VerticalAlignment="Top" CornerRadius="10"
-                Grid.Column="2" Background="White"
+                Grid.Column="2" Style="{StaticResource BorderNavigate}"
                  MinHeight="106">
             <StackPanel Margin="0 25 0 0">
                 <fa:ImageAwesome Icon="Solid_RightLeft" Width="25" PrimaryColor="#FF4C4C4C"/>
@@ -35,8 +35,8 @@
         </Border>
         <Border BorderBrush="Black" BorderThickness="1" 
                 VerticalAlignment="Top" CornerRadius="10"
-                Grid.Column="5"
-                MinHeight="106" Background="White">
+                Grid.Column="5" MinHeight="106"
+                Style="{StaticResource BorderNavigate}">
             <StackPanel Margin="0 25 0 0">
                 <fa:ImageAwesome Icon="Solid_CirclePlus" Width="25" PrimaryColor="#FF4C4C4C"/>
                 <TextBlock Text="Займы" HorizontalAlignment="Center" FontSize="14"/>
@@ -58,13 +58,19 @@
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
                                                 <StackPanel>
-                                                <StackPanel Margin="10 10 0 10" Orientation="Horizontal">
-                                                    <fa:ImageAwesome Icon="Solid_RightLeft" Height="20" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                                                        <StackPanel Margin="40 0 0 0">
-                                                            <TextBlock Text="Денис Алексеев Алесандрович" FontSize="14"/>
-                                                            <TextBlock Text="Перевод по номеру телефона" FontSize="10" Foreground="#FF545252"/>
+                                                    <DockPanel>
+                                                        <StackPanel Margin="10 10 0 10" Orientation="Horizontal" HorizontalAlignment="Left">
+                                                            <fa:ImageAwesome Icon="{Binding icon}" Height="20" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                                            <StackPanel Margin="40 0 0 0">
+                                                                <TextBlock Text="{Binding operation}" FontSize="14"/>
+                                                                <TextBlock Text="{Binding type}" FontSize="10" Foreground="#FF545252"/>
+                                                            </StackPanel>
                                                         </StackPanel>
-                                                </StackPanel>
+                                                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                                                            <TextBlock Text="{Binding AmountFormat}" FontSize="12" Margin="0 0 20 0"/>
+                                                            <TextBlock Text="{Binding date, StringFormat={}{H:m}}" FontSize="10" Margin="10 4 0 0" HorizontalAlignment="Right"/>
+                                                        </StackPanel>
+                                                    </DockPanel>
                                                     <Separator VerticalAlignment="Bottom"/>
                                                 </StackPanel>
                                             </DataTemplate>

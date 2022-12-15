@@ -18,10 +18,9 @@ namespace FastMoney.Model
         public Nullable<decimal> amount { get; set; }
         public string type { get; set; }
         public string icon { get; set; }
-        public Nullable<int> sender { get; set; }
-        public Nullable<int> recipient { get; set; }
+        public Nullable<int> UserId { get; set; }
+        public string operation1 { get; set; }
     
         public virtual User User { get; set; }
-        public virtual User User1 { get; set; }
     }
 }

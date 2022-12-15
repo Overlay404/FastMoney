@@ -1,4 +1,5 @@
 ﻿using FastMoney.Commands;
+using FastMoney.Model;
 using FastMoney.ModelView.Base;
 using System;
 using System.Collections.Generic;
@@ -32,7 +33,25 @@ namespace FastMoney.ModelView
         #region NameClient
         private string _NameClient = App.user.FullName;
 
-        public string NameClient { get => _NameClient; set => Set(ref _NameClient, value); } 
+        public string NameClient { get => _NameClient; set => Set(ref _NameClient, value); }
+        #endregion
+
+        #region Wallet
+        private IEnumerable<Card> _Wallet = App.db.Card.Local.Where(c => c.User == App.user);
+
+        public IEnumerable<Card> Wallet { get => _Wallet; set => Set(ref _Wallet, value); }
+        #endregion
+
+        #region Deposit
+        private IEnumerable<Deposit> _Deposit = App.db.Deposit.Local.Where(c => c.User == App.user);
+
+        public IEnumerable<Deposit> Deposit { get => _Deposit; set => Set(ref _Deposit, value); }
+        #endregion
+
+        #region Credit
+        private IEnumerable<Credit> _Credit = App.db.Credit.Local.Where(c => c.User == App.user);
+
+        public IEnumerable<Credit> Credit { get => _Credit; set => Set(ref _Credit, value); } 
         #endregion
         #endregion
 

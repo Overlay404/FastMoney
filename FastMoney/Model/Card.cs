@@ -17,6 +17,7 @@ namespace FastMoney.Model
         public int id { get; set; }
         public Nullable<decimal> amount { get; set; }
         public Nullable<int> UserId { get; set; }
+        public string number { get; set; }
     
         public virtual User User { get; set; }
     }

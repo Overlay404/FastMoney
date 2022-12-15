@@ -25,6 +25,10 @@ namespace FastMoney
         {
             App.db.User.Load();
             App.db.Role.Load();
+            App.db.Role.Load();
+            App.db.Card.Load();
+            App.db.Deposit.Load();
+            App.db.Credit.Load();
         }
     }
 }

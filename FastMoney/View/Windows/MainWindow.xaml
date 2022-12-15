@@ -17,8 +17,8 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="25*"/>
-            <ColumnDefinition Width="305*"/>
-            <ColumnDefinition Width="119*"/>
+            <ColumnDefinition Width="344*"/>
+            <ColumnDefinition Width="80*"/>
             <ColumnDefinition Width="751*"/>
         </Grid.ColumnDefinitions>
 
@@ -52,8 +52,8 @@
 
         <!--#region иконка закрытия и сворачивания приложения -->
         <StackPanel Grid.Column="3" 
-            HorizontalAlignment="Right" 
-            Orientation="Horizontal" Width="63">
+            HorizontalAlignment="Left" 
+            Orientation="Horizontal" Width="63" Margin="688,0,0,0">
             <Border HorizontalAlignment="Right" 
                 Width="20" Height="20"
                 Grid.Column="1" Grid.Row="0"
@@ -86,7 +86,7 @@
         <!--#endregion-->
 
         <Frame x:Name="frame" NavigationUIVisibility="Hidden" Grid.Column="3" Grid.Row="1" Margin="0,67,25,25" Source="../Pages/MainPage.xaml"/>
-        
+
         <!--#region Профиль пользователя -->
         <Border    Grid.Column="1" Grid.Row="1" 
                    VerticalAlignment="Top"
@@ -94,13 +94,14 @@
                    MaxHeight="300"
                    BorderBrush="Black"
                    CornerRadius="10" BorderThickness="1"
-                   Background="White" Margin="0,67,0,0">
+                   Margin="0,67,0,0" Height="86"
+                   Style="{StaticResource BorderNavigate}">
             <DockPanel>
                 <StackPanel Orientation="Horizontal">
                     <fa:ImageAwesome Icon="Regular_User" Width="30" HorizontalAlignment="Left" Panel.ZIndex="1" Margin="40 0 0 0"/>
                     <Ellipse Width="50" Height="50" Fill="#FFC8C8C8" Margin="-40 0 0 0"/>
                     <StackPanel>
-                        <TextBlock Text="{Binding NameClient}" Margin="10 20 0 0" FontSize="12"/>
+                        <TextBlock Text="{Binding NameClient}" Margin="10 20 0 0" FontSize="12" FontWeight="Bold"/>
                         <TextBlock Text="Профиль" Margin="10 8 0 0" FontSize="12"/>
                     </StackPanel>
                 </StackPanel>
@@ -111,64 +112,68 @@
 
         <!--#region разделы пользователя -->
         <Border    Grid.Column="1" Grid.Row="1" 
-                   VerticalAlignment="Bottom"
+                   VerticalAlignment="Top"
                    MinHeight="394"
                    MaxHeight="1200"
                    BorderBrush="Black"
                    CornerRadius="10" BorderThickness="1"
-                   Background="White" Margin="0,0,0,25">
-            <StackPanel>
-                <!--#region Раздел кошелёк -->
-                <Expander Header="Кошелёк" FontSize="16" Margin="10" IsExpanded="True">
+                   Background="White" Margin="0,201,0,0" Height="394">
+            <ScrollViewer>
+                <Grid>
                     <StackPanel>
-                        <ListView x:Name="walletList" BorderBrush="#00000000" MaxHeight="120" d:ItemsSource="{d:SampleData ItemCount=3}">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Margin="8 20 0 0" Orientation="Horizontal">
-                                    <fa:ImageAwesome Icon="Regular_CreditCard" Width="35"/>
-                                    <!--Сюда-->
-                                    <TextBlock Text="00,0Р" Margin="10 3 0 0" FontSize="14"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                    </StackPanel>
-                </Expander>
-                <!--#endregion-->
-                <!--#region раздел вклады -->
-                <Expander Header="Вклады" FontSize="16" Margin="10" IsExpanded="True">
-                    <ListView BorderBrush="#00000000" MaxHeight="120">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Margin="8 20 0 0" Orientation="Horizontal">
-                                    <fa:ImageAwesome Icon="Regular_CreditCard" Width="35"/>
-                                    <!--Сюда-->
-                                    <TextBlock Text="00,0Р" Margin="10 3 0 0" FontSize="14"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </Expander>
-                <!--#endregion-->
-                <!--#region раздел кредиты -->
-                <Expander Header="Кредиты" FontSize="16" Margin="10" IsExpanded="True">
-                    <ListView BorderBrush="#00000000" MaxHeight="120">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Margin="8 20 0 0" Orientation="Horizontal">
-                                    <fa:ImageAwesome Icon="Regular_CreditCard" Width="35"/>
-                                    <StackPanel>
-                                        <TextBlock Text="Осталось выплатить" FontSize="10" Foreground="#4D4D4D" Margin="10 0 0 0"/>
-                                        <!--Сюда-->
-                                        <TextBlock Text="00,0Р" Margin="10 0 0 0" FontSize="14"/>
+                    <!--#region Раздел кошелёк -->
+                    <Expander Header="Кошелёк" FontSize="16" Margin="10" IsExpanded="True">
+                        <StackPanel>
+                                <ListBox x:Name="walletList" BorderBrush="#00000000" MaxHeight="120" ItemsSource="{Binding Wallet}" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Margin="8 20 0 0" Orientation="Horizontal">
+                                            <fa:ImageAwesome Icon="Regular_CreditCard" Width="35"/>
+                                                <StackPanel>
+                                                    <TextBlock Text="{Binding NumberFormat}" Margin="10 0 0 0" FontSize="12" Foreground="#FF3A4033"/>
+                                                    <TextBlock Text="{Binding AmountFormat}" Margin="10 0 0 0" FontSize="14" Foreground="Black"/>
+                                                </StackPanel>
+                                            </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </StackPanel>
+                    </Expander>
+                    <!--#endregion-->
+                    <!--#region раздел вклады -->
+                    <Expander Header="Вклады" FontSize="16" Margin="10" IsExpanded="True">
+                        <ListBox BorderBrush="#00000000" MaxHeight="120" ItemsSource="{Binding Deposit}" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Margin="8 20 0 0" Orientation="Horizontal">
+                                        <fa:ImageAwesome Icon="Regular_CreditCard" Width="35"/>
+                                        <TextBlock Text="{Binding AmountFormat}" Margin="10 3 0 0" FontSize="14" Foreground="Black"/>
                                     </StackPanel>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </Expander>
-                <!--#endregion-->
-            </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Expander>
+                    <!--#endregion-->
+                    <!--#region раздел кредиты -->
+                    <Expander Header="Кредиты" FontSize="16" Margin="10" IsExpanded="True">
+                        <ListBox BorderBrush="#00000000" MaxHeight="120" ItemsSource="{Binding Credit}" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Margin="8 20 0 0" Orientation="Horizontal">
+                                        <fa:ImageAwesome Icon="Regular_CreditCard" Width="35"/>
+                                        <StackPanel>
+                                            <TextBlock Text="Осталось выплатить" FontSize="10" Foreground="#4D4D4D" Margin="10 0 0 0"/>
+                                            <TextBlock Text="{Binding AmountTotalFormat}" Margin="10 0 0 0" FontSize="14"  Foreground="Black"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Expander>
+                    <!--#endregion-->
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
         </Border>
         <!--#endregion-->
     </Grid>

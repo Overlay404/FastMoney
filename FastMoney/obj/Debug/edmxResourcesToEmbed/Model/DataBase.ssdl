@@ -7,6 +7,7 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="amount" Type="money" />
     <Property Name="UserId" Type="int" />
+    <Property Name="number" Type="nvarchar" MaxLength="16" />
   </EntityType>
   <EntityType Name="Credit">
     <Key>
@@ -38,8 +39,8 @@
     <Property Name="amount" Type="money" />
     <Property Name="type" Type="nvarchar" MaxLength="50" />
     <Property Name="icon" Type="nvarchar" MaxLength="50" />
-    <Property Name="sender" Type="int" />
-    <Property Name="recipient" Type="int" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="operation" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Role">
     <Key>
@@ -104,19 +105,7 @@
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="Operation">
-        <PropertyRef Name="sender" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Operation_User1">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Operation" Type="Self.Operation" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Operation">
-        <PropertyRef Name="recipient" />
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -152,10 +141,6 @@
       <End Role="Deposit" EntitySet="Deposit" />
     </AssociationSet>
     <AssociationSet Name="FK_Operation_User" Association="Self.FK_Operation_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="Operation" EntitySet="Operation" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Operation_User1" Association="Self.FK_Operation_User1">
       <End Role="User" EntitySet="User" />
       <End Role="Operation" EntitySet="Operation" />
     </AssociationSet>
