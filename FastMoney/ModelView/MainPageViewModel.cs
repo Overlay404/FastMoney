@@ -1,4 +1,5 @@
 ﻿using FastMoney.Classes;
+using FastMoney.Commands;
 using FastMoney.Model;
 using FastMoney.ModelView.Base;
 using System;
@@ -7,14 +8,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace FastMoney.ModelView
 {
     internal class MainPageViewModel : ViewModel
     {
 
-        private List<OperationList> _ListOperations = new List<OperationList> { new OperationList("Сегодня", App.db.Operation.Where(o => o.date == DateTime.Today).ToList()), new OperationList("Вчера", App.db.Operation.Where(o => o.date == OperationList.yesterday).ToList()) };
-        public List<OperationList> ListOperations { get => _ListOperations; set => Set(ref _ListOperations, value); }
+        #region Fields
+        #region Operations
+        private List<Operation> _ListOperations = App.db.Operation.ToList();
+        public List<Operation> ListOperations { get => _ListOperations; set => Set(ref _ListOperations, value); }
+        #endregion
 
+        #region PayPage        
+        private readonly Page _PayPage = new View.Pages.PayPage();
+        public Page PayPage { get => _PayPage; }
+        #endregion
+
+        #region TransferPage        
+        private readonly Page _TransferPage = new View.Pages.TransferPage();
+        public Page TransferPage { get => _TransferPage; }
+        #endregion
+        #endregion
+
+        #region Commands
+        #region GoPage
+        public ICommand GoPage { get; }
+        private bool CanGoPageExecute(object parameter) => true;
+        private void OnGoPageExecute(object parameter)
+        {
+
+            MainWindow.Instanse.frame.Navigate(parameter as Page);
+        } 
+        #endregion
+        #endregion
+
+
+        public MainPageViewModel()
+        {
+            GoPage = new LambdaCommand(OnGoPageExecute, CanGoPageExecute);
+        }
     }
 }

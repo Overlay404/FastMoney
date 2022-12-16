@@ -146,7 +146,7 @@
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Margin="8 20 0 0" Orientation="Horizontal">
-                                        <fa:ImageAwesome Icon="Regular_CreditCard" Width="35"/>
+                                        <fa:ImageAwesome Icon="Solid_PiggyBank" Width="35"/>
                                         <TextBlock Text="{Binding AmountFormat}" Margin="10 3 0 0" FontSize="14" Foreground="Black"/>
                                     </StackPanel>
                                 </DataTemplate>
@@ -160,7 +160,7 @@
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Margin="8 20 0 0" Orientation="Horizontal">
-                                        <fa:ImageAwesome Icon="Regular_CreditCard" Width="35"/>
+                                        <fa:ImageAwesome Icon="{Binding Icon}" Width="35"/>
                                         <StackPanel>
                                             <TextBlock Text="Осталось выплатить" FontSize="10" Foreground="#4D4D4D" Margin="10 0 0 0"/>
                                             <TextBlock Text="{Binding AmountTotalFormat}" Margin="10 0 0 0" FontSize="14"  Foreground="Black"/>

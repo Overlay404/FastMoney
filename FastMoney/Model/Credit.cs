@@ -14,14 +14,22 @@ namespace FastMoney.Model
     
     public partial class Credit
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Credit()
+        {
+            this.Failure_Schedule = new HashSet<Failure_Schedule>();
+        }
+    
         public int id { get; set; }
         public Nullable<decimal> totalAmount { get; set; }
-        public Nullable<decimal> partialAmount { get; set; }
         public Nullable<System.DateTime> dateOfIssue { get; set; }
         public Nullable<System.DateTime> expirationDate { get; set; }
         public Nullable<decimal> rate { get; set; }
         public Nullable<int> UserId { get; set; }
+        public string type { get; set; }
     
         public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Failure_Schedule> Failure_Schedule { get; set; }
     }
 }

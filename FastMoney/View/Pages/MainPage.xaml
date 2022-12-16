@@ -23,6 +23,9 @@
         <Border BorderBrush="Black" BorderThickness="1" 
                 VerticalAlignment="Top" CornerRadius="10"
                 Style="{StaticResource BorderNavigate}" MinHeight="106">
+            <Border.InputBindings>
+                <MouseBinding MouseAction="LeftClick" Command="{Binding GoPage}" CommandParameter="{Binding PayPage}"/>
+            </Border.InputBindings>
             <StackPanel Margin="0 25 0 0">
                 <fa:ImageAwesome Icon="Solid_Wallet" Width="25" PrimaryColor="#FF4C4C4C"/>
                 <TextBlock Text="Платежи" HorizontalAlignment="Center" FontSize="14"/>
@@ -32,6 +35,9 @@
                 VerticalAlignment="Top" CornerRadius="10"
                 Grid.Column="2" Style="{StaticResource BorderNavigate}"
                  MinHeight="106">
+            <Border.InputBindings>
+                <MouseBinding MouseAction="LeftClick" Command="{Binding GoPage}" CommandParameter="{Binding TransferPage}"/>
+            </Border.InputBindings>
             <StackPanel Margin="0 25 0 0">
                 <fa:ImageAwesome Icon="Solid_RightLeft" Width="25" PrimaryColor="#FF4C4C4C"/>
                 <TextBlock Text="Переводы" HorizontalAlignment="Center" FontSize="14"/>
@@ -48,46 +54,44 @@
         </Border>
         <Border BorderBrush="Black" BorderThickness="1" 
                 VerticalAlignment="Bottom" CornerRadius="10"
-                Grid.ColumnSpan="5" MinHeight="394"
+                Grid.ColumnSpan="5" Height="394"
                 Background="White" Padding="10">
+            <ScrollViewer>
             <StackPanel>
-                <TextBlock Text="Последние операции" FontSize="14" Margin="0 0 0 10"/>
-                <ScrollViewer>
-                <ItemsControl ItemsSource="{Binding ListOperations}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Grid>
+                    <TextBlock Text="Последние операции" FontSize="14" Margin="0 0 0 10"/>
+                    <ItemsControl x:Name="OperationsItemControl" ItemsSource="{Binding ListOperations}" Loaded="OperationsItemControl_Loaded">
+                        <ItemsControl.GroupStyle>
+                            <GroupStyle>
+                                <GroupStyle.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock FontWeight="Bold" FontSize="14" Text="{Binding Name, StringFormat=D, ConverterCulture=ru}"/>
+                                    </DataTemplate>
+                                </GroupStyle.HeaderTemplate>
+                            </GroupStyle>
+                        </ItemsControl.GroupStyle>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
                                 <StackPanel>
-                                    <TextBlock Text="{Binding Day}" FontSize="16" Margin="10 0 0 0"/>
-                                    <ItemsControl ItemsSource="{Binding Operation}">
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate>
-                                                <StackPanel>
-                                                    <DockPanel>
-                                                        <StackPanel Margin="10 10 0 10" Orientation="Horizontal" HorizontalAlignment="Left">
-                                                            <fa:ImageAwesome Icon="{Binding icon}" Height="20" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                                                            <StackPanel Margin="40 0 0 0">
-                                                                <TextBlock Text="{Binding operation1}" FontSize="14"/>
-                                                                <TextBlock Text="{Binding type}" FontSize="10" Foreground="#FF545252"/>
-                                                            </StackPanel>
-                                                        </StackPanel>
-                                                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                                                            <TextBlock Text="{Binding AmountFormat}" FontSize="12" Margin="0 0 20 0"/>
-                                                            <TextBlock Text="{Binding date, StringFormat={}{H:m}}" FontSize="10" Margin="10 4 0 0" HorizontalAlignment="Right"/>
-                                                        </StackPanel>
-                                                    </DockPanel>
-                                                    <Separator VerticalAlignment="Bottom"/>
-                                                </StackPanel>
-                                            </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                    </ItemsControl>
+                                    <DockPanel>
+                                        <StackPanel Margin="10 10 0 10" Orientation="Horizontal" HorizontalAlignment="Left">
+                                            <fa:ImageAwesome Icon="{Binding icon}" Height="20" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                            <StackPanel Margin="40 0 0 0">
+                                                <TextBlock Text="{Binding operation1}" FontSize="14"/>
+                                                <TextBlock Text="{Binding type}" FontSize="10" Foreground="#FF545252"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding AmountFormat}" FontSize="12"/>
+                                        
+                                        </StackPanel>
+                                    </DockPanel>
+                                    <Separator VerticalAlignment="Bottom"/>
                                 </StackPanel>
-                            </Grid>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-                </ScrollViewer>
-            </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </ScrollViewer>
         </Border>
     </Grid>
 </Page>

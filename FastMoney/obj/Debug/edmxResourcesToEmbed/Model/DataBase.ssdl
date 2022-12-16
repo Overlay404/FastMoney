@@ -15,11 +15,11 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="totalAmount" Type="money" />
-    <Property Name="partialAmount" Type="money" />
     <Property Name="dateOfIssue" Type="date" />
     <Property Name="expirationDate" Type="date" />
     <Property Name="rate" Type="decimal" Precision="4" Scale="2" />
     <Property Name="UserId" Type="int" />
+    <Property Name="type" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Deposit">
     <Key>
@@ -31,6 +31,16 @@
     <Property Name="rate" Type="decimal" Precision="4" Scale="2" />
     <Property Name="UserId" Type="int" />
   </EntityType>
+  <EntityType Name="Failure_Schedule">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="date" Type="date" />
+    <Property Name="status" Type="bit" />
+    <Property Name="amount" Type="money" />
+    <Property Name="CreditId" Type="int" />
+  </EntityType>
   <EntityType Name="Operation">
     <Key>
       <PropertyRef Name="id" />
@@ -41,7 +51,7 @@
     <Property Name="icon" Type="nvarchar" MaxLength="50" />
     <Property Name="UserId" Type="int" />
     <Property Name="operation" Type="nvarchar" MaxLength="50" />
-    <Property Name="date" Type="smalldatetime" />
+    <Property Name="date" Type="date" />
   </EntityType>
   <EntityType Name="Role">
     <Key>
@@ -98,6 +108,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Failure_Schedule_Credit">
+    <End Role="Credit" Type="Self.Credit" Multiplicity="0..1" />
+    <End Role="Failure_Schedule" Type="Self.Failure_Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Credit">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Failure_Schedule">
+        <PropertyRef Name="CreditId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Operation_User">
     <End Role="User" Type="Self.User" Multiplicity="0..1" />
     <End Role="Operation" Type="Self.Operation" Multiplicity="*" />
@@ -126,6 +148,7 @@
     <EntitySet Name="Card" EntityType="Self.Card" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Credit" EntityType="Self.Credit" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Deposit" EntityType="Self.Deposit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Failure_Schedule" EntityType="Self.Failure_Schedule" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Operation" EntityType="Self.Operation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
@@ -140,6 +163,10 @@
     <AssociationSet Name="FK_Deposit_User" Association="Self.FK_Deposit_User">
       <End Role="User" EntitySet="User" />
       <End Role="Deposit" EntitySet="Deposit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Failure_Schedule_Credit" Association="Self.FK_Failure_Schedule_Credit">
+      <End Role="Credit" EntitySet="Credit" />
+      <End Role="Failure_Schedule" EntitySet="Failure_Schedule" />
     </AssociationSet>
     <AssociationSet Name="FK_Operation_User" Association="Self.FK_Operation_User">
       <End Role="User" EntitySet="User" />

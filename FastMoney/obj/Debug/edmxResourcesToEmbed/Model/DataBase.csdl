@@ -1,33 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="FastMoneyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityContainer Name="FastMoneyEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Card" EntityType="FastMoneyModel.Card" />
-    <EntitySet Name="Credit" EntityType="FastMoneyModel.Credit" />
-    <EntitySet Name="Deposit" EntityType="FastMoneyModel.Deposit" />
-    <EntitySet Name="Operation" EntityType="FastMoneyModel.Operation" />
-    <EntitySet Name="Role" EntityType="FastMoneyModel.Role" />
-    <EntitySet Name="User" EntityType="FastMoneyModel.User" />
-    <AssociationSet Name="FK_Card_User" Association="FastMoneyModel.FK_Card_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="Card" EntitySet="Card" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Credit_User" Association="FastMoneyModel.FK_Credit_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="Credit" EntitySet="Credit" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Deposit_User" Association="FastMoneyModel.FK_Deposit_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="Deposit" EntitySet="Deposit" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Operation_User" Association="FastMoneyModel.FK_Operation_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="Operation" EntitySet="Operation" />
-    </AssociationSet>
-    <AssociationSet Name="FK_User_Role" Association="FastMoneyModel.FK_User_Role">
-      <End Role="Role" EntitySet="Role" />
-      <End Role="User" EntitySet="User" />
-    </AssociationSet>
-  </EntityContainer>
   <EntityType Name="Card">
     <Key>
       <PropertyRef Name="id" />
@@ -36,7 +8,7 @@
     <Property Name="amount" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="UserId" Type="Int32" />
     <Property Name="number" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="User" Relationship="FastMoneyModel.FK_Card_User" FromRole="Card" ToRole="User" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Card_User" FromRole="Card" ToRole="User" />
   </EntityType>
   <EntityType Name="Credit">
     <Key>
@@ -44,12 +16,13 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="totalAmount" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="partialAmount" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="dateOfIssue" Type="DateTime" Precision="0" />
     <Property Name="expirationDate" Type="DateTime" Precision="0" />
     <Property Name="rate" Type="Decimal" Precision="4" Scale="2" />
     <Property Name="UserId" Type="Int32" />
-    <NavigationProperty Name="User" Relationship="FastMoneyModel.FK_Credit_User" FromRole="Credit" ToRole="User" />
+    <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Credit_User" FromRole="Credit" ToRole="User" />
+    <NavigationProperty Name="Failure_Schedule" Relationship="FastMoneyModel.FK_Failure_Schedule_Credit" FromRole="Credit" ToRole="Failure_Schedule" />
   </EntityType>
   <EntityType Name="Deposit">
     <Key>
@@ -60,7 +33,7 @@
     <Property Name="date" Type="DateTime" Precision="0" />
     <Property Name="rate" Type="Decimal" Precision="4" Scale="2" />
     <Property Name="UserId" Type="Int32" />
-    <NavigationProperty Name="User" Relationship="FastMoneyModel.FK_Deposit_User" FromRole="Deposit" ToRole="User" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Deposit_User" FromRole="Deposit" ToRole="User" />
   </EntityType>
   <EntityType Name="Operation">
     <Key>
@@ -72,8 +45,8 @@
     <Property Name="icon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="UserId" Type="Int32" />
     <Property Name="operation1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="User" Relationship="FastMoneyModel.FK_Operation_User" FromRole="Operation" ToRole="User" />
     <Property Name="date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Operation_User" FromRole="Operation" ToRole="User" />
   </EntityType>
   <EntityType Name="Role">
     <Key>
@@ -81,7 +54,7 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="User" Relationship="FastMoneyModel.FK_User_Role" FromRole="Role" ToRole="User" />
+    <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -94,15 +67,15 @@
     <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="RoleId" Type="Int32" />
-    <NavigationProperty Name="Card" Relationship="FastMoneyModel.FK_Card_User" FromRole="User" ToRole="Card" />
-    <NavigationProperty Name="Credit" Relationship="FastMoneyModel.FK_Credit_User" FromRole="User" ToRole="Credit" />
-    <NavigationProperty Name="Deposit" Relationship="FastMoneyModel.FK_Deposit_User" FromRole="User" ToRole="Deposit" />
-    <NavigationProperty Name="Operation" Relationship="FastMoneyModel.FK_Operation_User" FromRole="User" ToRole="Operation" />
-    <NavigationProperty Name="Role" Relationship="FastMoneyModel.FK_User_Role" FromRole="User" ToRole="Role" />
+    <NavigationProperty Name="Card" Relationship="Self.FK_Card_User" FromRole="User" ToRole="Card" />
+    <NavigationProperty Name="Credit" Relationship="Self.FK_Credit_User" FromRole="User" ToRole="Credit" />
+    <NavigationProperty Name="Deposit" Relationship="Self.FK_Deposit_User" FromRole="User" ToRole="Deposit" />
+    <NavigationProperty Name="Operation" Relationship="Self.FK_Operation_User" FromRole="User" ToRole="Operation" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
   </EntityType>
   <Association Name="FK_Card_User">
-    <End Type="FastMoneyModel.User" Role="User" Multiplicity="0..1" />
-    <End Type="FastMoneyModel.Card" Role="Card" Multiplicity="*" />
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Card" Type="Self.Card" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="id" />
@@ -113,8 +86,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Credit_User">
-    <End Type="FastMoneyModel.User" Role="User" Multiplicity="0..1" />
-    <End Type="FastMoneyModel.Credit" Role="Credit" Multiplicity="*" />
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Credit" Type="Self.Credit" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="id" />
@@ -125,8 +98,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Deposit_User">
-    <End Type="FastMoneyModel.User" Role="User" Multiplicity="0..1" />
-    <End Type="FastMoneyModel.Deposit" Role="Deposit" Multiplicity="*" />
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Deposit" Type="Self.Deposit" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="id" />
@@ -137,8 +110,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Operation_User">
-    <End Type="FastMoneyModel.User" Role="User" Multiplicity="0..1" />
-    <End Type="FastMoneyModel.Operation" Role="Operation" Multiplicity="*" />
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Operation" Type="Self.Operation" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="id" />
@@ -149,14 +122,70 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_User_Role">
-    <End Type="FastMoneyModel.Role" Role="Role" Multiplicity="0..1" />
-    <End Type="FastMoneyModel.User" Role="User" Multiplicity="*" />
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Role">
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="User">
         <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FastMoneyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Card" EntityType="Self.Card" />
+    <EntitySet Name="Credit" EntityType="Self.Credit" />
+    <EntitySet Name="Deposit" EntityType="Self.Deposit" />
+    <EntitySet Name="Operation" EntityType="Self.Operation" />
+    <EntitySet Name="Role" EntityType="Self.Role" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <AssociationSet Name="FK_Card_User" Association="Self.FK_Card_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Card" EntitySet="Card" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Credit_User" Association="Self.FK_Credit_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Credit" EntitySet="Credit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deposit_User" Association="Self.FK_Deposit_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Deposit" EntitySet="Deposit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Operation_User" Association="Self.FK_Operation_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Operation" EntitySet="Operation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <EntitySet Name="Failure_Schedule" EntityType="FastMoneyModel.Failure_Schedule" />
+    <AssociationSet Name="FK_Failure_Schedule_Credit" Association="FastMoneyModel.FK_Failure_Schedule_Credit">
+      <End Role="Credit" EntitySet="Credit" />
+      <End Role="Failure_Schedule" EntitySet="Failure_Schedule" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Failure_Schedule">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="date" Type="DateTime" Precision="0" />
+    <Property Name="status" Type="Boolean" />
+    <Property Name="amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CreditId" Type="Int32" />
+    <NavigationProperty Name="Credit" Relationship="FastMoneyModel.FK_Failure_Schedule_Credit" FromRole="Failure_Schedule" ToRole="Credit" />
+  </EntityType>
+  <Association Name="FK_Failure_Schedule_Credit">
+    <End Type="FastMoneyModel.Credit" Role="Credit" Multiplicity="0..1" />
+    <End Type="FastMoneyModel.Failure_Schedule" Role="Failure_Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Credit">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Failure_Schedule">
+        <PropertyRef Name="CreditId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

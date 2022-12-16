@@ -4,18 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="827dd7389e0b450aa64c83a1abaffdab" Name="Diagram1">
-        <EntityTypeShape EntityType="FastMoneyModel.Card" Width="1.5" PointX="5.25" PointY="10.75" />
-        <EntityTypeShape EntityType="FastMoneyModel.Credit" Width="1.5" PointX="5.25" PointY="7.375" />
-        <EntityTypeShape EntityType="FastMoneyModel.Deposit" Width="1.5" PointX="5.25" PointY="1.375" />
-        <EntityTypeShape EntityType="FastMoneyModel.Operation" Width="1.5" PointX="5.25" PointY="4.375" />
-        <EntityTypeShape EntityType="FastMoneyModel.Role" Width="1.5" PointX="0.75" PointY="6.25" />
-        <EntityTypeShape EntityType="FastMoneyModel.User" Width="1.5" PointX="3" PointY="5.375" />
-        <AssociationConnector Association="FastMoneyModel.FK_Card_User" />
-        <AssociationConnector Association="FastMoneyModel.FK_Credit_User" />
-        <AssociationConnector Association="FastMoneyModel.FK_Deposit_User" />
-        <AssociationConnector Association="FastMoneyModel.FK_Operation_User" />
-        <AssociationConnector Association="FastMoneyModel.FK_User_Role" />
+      <Diagram DiagramId="2cae4c79eeaa4fbfae6249ac4b201b99" Name="Diagram1">
+        <EntityTypeShape EntityType="FastMoneyModel.Card" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FastMoneyModel.Credit" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FastMoneyModel.Deposit" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FastMoneyModel.Operation" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FastMoneyModel.Role" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FastMoneyModel.User" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="FastMoneyModel.FK_Card_User" ManuallyRouted="false" />
+        <AssociationConnector Association="FastMoneyModel.FK_Credit_User" ManuallyRouted="false" />
+        <AssociationConnector Association="FastMoneyModel.FK_Deposit_User" ManuallyRouted="false" />
+        <AssociationConnector Association="FastMoneyModel.FK_Operation_User" ManuallyRouted="false" />
+        <AssociationConnector Association="FastMoneyModel.FK_User_Role" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="FastMoneyModel.Failure_Schedule" Width="1.5" PointX="7.5" PointY="4.375" />
+        <AssociationConnector Association="FastMoneyModel.FK_Failure_Schedule_Credit" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

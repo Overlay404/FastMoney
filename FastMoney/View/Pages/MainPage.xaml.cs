@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FastMoney.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,18 @@ namespace FastMoney.View.Pages
     /// </summary>
     public partial class MainPage : Page
     {
+        public static MainPage Instanse { get; set; }
         public MainPage()
         {
             InitializeComponent();
+            Instanse = this;
         }
+
+        private void OperationsItemControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            new GroupOperations();
+        }
+
+       
     }
 }

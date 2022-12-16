@@ -10,5 +10,6 @@ namespace FastMoney.Model
     partial class Credit
     {
         public string AmountTotalFormat => $"{Convert.ToDouble(totalAmount).ToString("C", CultureInfo.CreateSpecificCulture("ru-RU"))}";
+        public string Icon => type.Equals("ауинтентный") ? "Solid_HandHoldingDollar" : "Solid_SackDollar";
     }
 }

@@ -100,7 +100,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Classes\OperationList.cs" />
+    <Compile Include="Classes\GroupOperations.cs" />
     <Compile Include="Commands\Base\Command.cs" />
     <Compile Include="Commands\CloseApplicationCommand.cs" />
     <Compile Include="Commands\LambdaCommand.cs" />
@@ -108,6 +108,7 @@
     <Compile Include="ModelView\Base\ViewModel.cs" />
     <Compile Include="ModelView\MainPageViewModel.cs" />
     <Compile Include="ModelView\MainWindowViewModel.cs" />
+    <Compile Include="ModelView\PayPageModelView.cs" />
     <Compile Include="Model\Card.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
@@ -130,6 +131,9 @@
       <DependentUpon>DataBase.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\Deposit.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Failure_Schedule.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Operation.cs">
@@ -195,19 +199,20 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
     <Content Include="Model\DataBase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DataBase.Context.cs</LastGenOutput>
       <DependentUpon>DataBase.edmx</DependentUpon>
+      <LastGenOutput>DataBase.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model\DataBase.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DataBase.edmx</DependentUpon>
       <LastGenOutput>DataBase.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

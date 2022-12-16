@@ -3,13 +3,42 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:FastMoney.View.Pages"
+      xmlns:fa="http://schemas.fontawesome.com/icons/svg"
+      xmlns:modelview="clr-namespace:FastMoney.ModelView"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PayPage">
-
-    <Grid>
-        <Ellipse HorizontalAlignment="Left" Height="100" Margin="270,214,0,0" Stroke="#FFBFBFBF" VerticalAlignment="Top" Width="360"/>
-
+    <Page.DataContext>
+        <modelview:PayPageModelView/>
+    </Page.DataContext>
+    <Grid Style="{StaticResource Grid}">
+        <ListView ItemsSource="{Binding Credit}" HorizontalAlignment="Center" Background="#D9D9D9">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border CornerRadius="10" BorderBrush="Black" BorderThickness="1" Padding="20" Background="White" Width="700">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:ImageAwesome Icon="{Binding Icon}" Height="30" Margin="0 0 30 0"/>
+                            <StackPanel Margin="0 0 30 0">
+                            <TextBlock Text="Кредит" FontSize="16" FontWeight="Bold" />
+                            <TextBlock Text="{Binding StringFormat=По ставке {0}%, Path=rate}"/>
+                            <TextBlock Text="{Binding type}" FontSize="12" FontStyle="Italic"/>
+                        </StackPanel>
+                            <StackPanel HorizontalAlignment="Center" Height="35" Margin="0 0 30 0">
+                                <TextBlock Text="Осталось выплатить"/>
+                                <TextBlock Text="{Binding AmountTotalFormat}"/>
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Center" Height="35" Margin="0 0 30 0">
+                                <TextBlock Text="Кредит взят:"/>
+                                <TextBlock Text="{Binding dateOfIssue, StringFormat=D, ConverterCulture=ru}"/>
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Center" Height="35">
+                                <TextBlock Text="Выплаты до:"/>
+                                <TextBlock Text="{Binding expirationDate, StringFormat=D, ConverterCulture=ru}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>
