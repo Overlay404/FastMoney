@@ -30,6 +30,11 @@ namespace FastMoney.ModelView
         private readonly Page _TransferPage = new View.Pages.TransferPage();
         public Page TransferPage { get => _TransferPage; }
         #endregion
+
+        #region CreditPage        
+        private readonly Page _CreditPage = new View.Pages.CreditPage();
+        public Page CreditPage { get => _CreditPage; }
+        #endregion
         #endregion
 
         #region Commands

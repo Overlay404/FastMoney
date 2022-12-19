@@ -18,6 +18,7 @@ namespace FastMoney.Model
         public Credit()
         {
             this.Failure_Schedule = new HashSet<Failure_Schedule>();
+            this.Request = new HashSet<Request>();
         }
     
         public int id { get; set; }
@@ -27,9 +28,12 @@ namespace FastMoney.Model
         public Nullable<decimal> rate { get; set; }
         public Nullable<int> UserId { get; set; }
         public string type { get; set; }
+        public string status { get; set; }
     
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Failure_Schedule> Failure_Schedule { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Request> Request { get; set; }
     }
 }

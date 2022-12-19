@@ -28,9 +28,10 @@ namespace FastMoney.Model
         public virtual DbSet<Card> Card { get; set; }
         public virtual DbSet<Credit> Credit { get; set; }
         public virtual DbSet<Deposit> Deposit { get; set; }
+        public virtual DbSet<Failure_Schedule> Failure_Schedule { get; set; }
         public virtual DbSet<Operation> Operation { get; set; }
+        public virtual DbSet<Request> Request { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<User> User { get; set; }
-        public virtual DbSet<Failure_Schedule> Failure_Schedule { get; set; }
     }
 }

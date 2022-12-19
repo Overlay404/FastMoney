@@ -3,6 +3,7 @@ using FastMoney.Model;
 using FastMoney.ModelView.Base;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,7 +62,6 @@ namespace FastMoney.ModelView
         private bool CanGoPageExecute(object parameter) => true;
         private void OnGoPageExecute(object parameter)
         {
-
             MainWindow.Instanse.frame.Navigate(parameter as Page);
         }
 

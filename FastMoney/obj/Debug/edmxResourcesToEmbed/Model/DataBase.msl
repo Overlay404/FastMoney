@@ -4,68 +4,35 @@
     <EntitySetMapping Name="Card">
       <EntityTypeMapping TypeName="FastMoneyModel.Card">
         <MappingFragment StoreEntitySet="Card">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="amount" ColumnName="amount" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Credit">
       <EntityTypeMapping TypeName="FastMoneyModel.Credit">
         <MappingFragment StoreEntitySet="Credit">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="totalAmount" ColumnName="totalAmount" />
-          <ScalarProperty Name="dateOfIssue" ColumnName="dateOfIssue" />
-          <ScalarProperty Name="expirationDate" ColumnName="expirationDate" />
-          <ScalarProperty Name="rate" ColumnName="rate" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="status" ColumnName="status" />
           <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="rate" ColumnName="rate" />
+          <ScalarProperty Name="expirationDate" ColumnName="expirationDate" />
+          <ScalarProperty Name="dateOfIssue" ColumnName="dateOfIssue" />
+          <ScalarProperty Name="totalAmount" ColumnName="totalAmount" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Deposit">
       <EntityTypeMapping TypeName="FastMoneyModel.Deposit">
         <MappingFragment StoreEntitySet="Deposit">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="amount" ColumnName="amount" />
-          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="rate" ColumnName="rate" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Operation">
-      <EntityTypeMapping TypeName="FastMoneyModel.Operation">
-        <MappingFragment StoreEntitySet="Operation">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="amount" ColumnName="amount" />
-          <ScalarProperty Name="type" ColumnName="type" />
-          <ScalarProperty Name="icon" ColumnName="icon" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="operation1" ColumnName="operation" />
           <ScalarProperty Name="date" ColumnName="date" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Role">
-      <EntityTypeMapping TypeName="FastMoneyModel.Role">
-        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="amount" ColumnName="amount" />
           <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="User">
-      <EntityTypeMapping TypeName="FastMoneyModel.User">
-        <MappingFragment StoreEntitySet="User">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="lastname" ColumnName="lastname" />
-          <ScalarProperty Name="patronymic" ColumnName="patronymic" />
-          <ScalarProperty Name="login" ColumnName="login" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -76,6 +43,49 @@
           <ScalarProperty Name="amount" ColumnName="amount" />
           <ScalarProperty Name="status" ColumnName="status" />
           <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Operation">
+      <EntityTypeMapping TypeName="FastMoneyModel.Operation">
+        <MappingFragment StoreEntitySet="Operation">
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="operation1" ColumnName="operation" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="icon" ColumnName="icon" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Request">
+      <EntityTypeMapping TypeName="FastMoneyModel.Request">
+        <MappingFragment StoreEntitySet="Request">
+          <ScalarProperty Name="CreditId" ColumnName="CreditId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="FastMoneyModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="FastMoneyModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="patronymic" ColumnName="patronymic" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
