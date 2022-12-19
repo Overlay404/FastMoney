@@ -12,7 +12,7 @@
         <modelview:PayPageModelView/>
     </Page.DataContext>
     <Grid Style="{StaticResource Grid}">
-        <ListView ItemsSource="{Binding Credit}" HorizontalAlignment="Center" Background="#D9D9D9">
+        <ListView ItemsSource="{Binding Credit}" HorizontalAlignment="Center" Background="#D9D9D9" SelectionChanged="ListView_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border CornerRadius="10" BorderBrush="Black" BorderThickness="1" Padding="20" Background="White" Width="700">
@@ -22,6 +22,7 @@
                             <TextBlock Text="Кредит" FontSize="16" FontWeight="Bold" />
                             <TextBlock Text="{Binding StringFormat=По ставке {0}%, Path=rate}"/>
                             <TextBlock Text="{Binding type}" FontSize="12" FontStyle="Italic"/>
+                            <TextBlock Text="{Binding StringFormat=Статус {0}, Path=status}" FontSize="12"/>
                         </StackPanel>
                             <StackPanel HorizontalAlignment="Center" Height="35" Margin="0 0 30 0">
                                 <TextBlock Text="Осталось выплатить"/>

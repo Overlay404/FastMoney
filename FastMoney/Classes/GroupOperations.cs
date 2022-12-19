@@ -11,7 +11,7 @@ namespace FastMoney.Classes
     internal class GroupOperations
     {
         public GroupOperations()
-        {
+        { 
             if (MainPage.Instanse.OperationsItemControl.ItemsSource == null) return;
 
             CollectionView collectionView = (CollectionView)CollectionViewSource.GetDefaultView(MainPage.Instanse.OperationsItemControl.ItemsSource);

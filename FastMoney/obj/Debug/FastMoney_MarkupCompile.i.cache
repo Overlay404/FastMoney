@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Overlay\source\repos\FastMoney\FastMoney\App.xaml
-7-1012360993
+11459577824
 2-456683589
-391963825170
+47-1374017059
 22-186077614
-Style\StyleMainWindow.xaml;View\Pages\CreditPage.xaml;View\Pages\MainPage.xaml;View\Pages\PayPage.xaml;View\Pages\TransferPage.xaml;View\Windows\MainWindow.xaml;View\Windows\ScheduleCredit.xaml;
+Style\StyleMainWindow.xaml;View\Pages\Autorization.xaml;View\Pages\CreditPage.xaml;View\Pages\MainPage.xaml;View\Pages\PayPage.xaml;View\Pages\Registration.xaml;View\Pages\TransferPage.xaml;View\Windows\AutorizationRegistration.xaml;View\Windows\MainWindow.xaml;View\Windows\ManagerWindow.xaml;View\Windows\ScheduleCredit.xaml;
 
 True
 

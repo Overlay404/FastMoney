@@ -52,8 +52,8 @@
 
         <!--#region иконка закрытия и сворачивания приложения -->
         <StackPanel Grid.Column="3" 
-            HorizontalAlignment="Left" 
-            Orientation="Horizontal" Width="63" Margin="688,0,0,0">
+            HorizontalAlignment="Right" 
+            Orientation="Horizontal" Width="63">
             <Border HorizontalAlignment="Right" 
                 Width="20" Height="20"
                 Grid.Column="1" Grid.Row="0"

@@ -1,12 +1,14 @@
 ﻿using FastMoney.Commands;
 using FastMoney.Model;
 using FastMoney.ModelView.Base;
+using FastMoney.View.Windows;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -29,6 +31,16 @@ namespace FastMoney.ModelView
         #region TransferPage        
         private readonly Page _TransferPage = new View.Pages.TransferPage();
         public Page TransferPage { get => _TransferPage; }
+        #endregion
+
+        #region MainWindow        
+        private readonly MainWindow _MainWindow = MainWindow.Instanse;
+        public MainWindow MainWindow { get => _MainWindow; }
+        #endregion
+
+        #region AutorizationRegistration        
+        private readonly AutorizationRegistration _AutorizationRegistration = AutorizationRegistration.Instance;
+        public AutorizationRegistration AutorizationRegistration { get => _AutorizationRegistration; }
         #endregion
 
         #region NameClient

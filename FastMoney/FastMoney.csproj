@@ -78,13 +78,33 @@
     </ApplicationDefinition>
     <Compile Include="Classes\CreditClass.cs" />
     <Compile Include="Classes\CreditScheduleClass.cs" />
+    <Compile Include="Commands\DragMoveCommand.cs" />
+    <Compile Include="Commands\GoRegistrtionPage.cs" />
+    <Compile Include="Commands\MinimazeWindowCommandAuth.cs" />
+    <Compile Include="ModelView\GoAutorizationPage.cs" />
     <Compile Include="Model\Request.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Autorization.xaml.cs">
+      <DependentUpon>Autorization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Registration.xaml.cs">
+      <DependentUpon>Registration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\AutorizationRegistration.xaml.cs">
+      <DependentUpon>AutorizationRegistration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\ManagerWindow.xaml.cs">
+      <DependentUpon>ManagerWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Windows\ScheduleCredit.xaml.cs">
       <DependentUpon>ScheduleCredit.xaml</DependentUpon>
     </Compile>
     <Page Include="Style\StyleMainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Autorization.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -100,7 +120,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\Registration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\TransferPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\AutorizationRegistration.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -178,6 +206,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\Windows\ManagerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Windows\ScheduleCredit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -26,13 +26,10 @@ namespace FastMoney.View.Pages
         {
             InitializeComponent();
             Instanse = this;
-        }
 
-        private void OperationsItemControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            new GroupOperations();
+            CollectionView collectionView = (CollectionView)CollectionViewSource.GetDefaultView(OperationsItemControl.ItemsSource);
+            PropertyGroupDescription groupDescription = new PropertyGroupDescription("date");
+            collectionView.GroupDescriptions.Add(groupDescription);
         }
-
-       
     }
 }

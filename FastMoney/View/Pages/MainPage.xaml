@@ -62,7 +62,7 @@
             <ScrollViewer>
             <StackPanel>
                     <TextBlock Text="Последние операции" FontSize="14" Margin="0 0 0 10"/>
-                    <ItemsControl x:Name="OperationsItemControl" ItemsSource="{Binding ListOperations}" Loaded="OperationsItemControl_Loaded">
+                    <ItemsControl x:Name="OperationsItemControl" ItemsSource="{Binding ListOperations}">
                         <ItemsControl.GroupStyle>
                             <GroupStyle>
                                 <GroupStyle.HeaderTemplate>

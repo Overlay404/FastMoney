@@ -19,7 +19,7 @@ namespace FastMoney
         public static FastMoneyEntities db = new FastMoneyEntities();
 
 
-        public static User user = App.db.User.FirstOrDefault();
+        public static User user;
 
         public App()
         {
@@ -28,7 +28,6 @@ namespace FastMoney
             App.db.Role.Load();
             App.db.Card.Load();
             App.db.Deposit.Load();
-            App.db.Credit.Load();
         }
     }
 }

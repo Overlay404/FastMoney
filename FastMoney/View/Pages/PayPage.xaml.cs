@@ -1,5 +1,7 @@
-﻿using System;
+﻿using FastMoney.ModelView;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +25,11 @@ namespace FastMoney.View.Pages
         public PayPage()
         {
             InitializeComponent();
+        }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
