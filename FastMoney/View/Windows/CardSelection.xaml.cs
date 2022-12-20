@@ -23,7 +23,7 @@ namespace FastMoney.View.Windows
         public CardSelection()
         {
             InitializeComponent();
-            CardListView.ItemsSource = App.db.Card.ToList();
+            CardListView.ItemsSource = App.db.Card.Where(c => c.UserId == App.user.id).ToList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

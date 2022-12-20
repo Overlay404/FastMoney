@@ -40,7 +40,7 @@
             </Border.InputBindings>
             <StackPanel Margin="0 25 0 0">
                 <fa:ImageAwesome Icon="Solid_RightLeft" Width="25" PrimaryColor="#FF4C4C4C"/>
-                <TextBlock Text="Вклады" HorizontalAlignment="Center" FontSize="14"/>
+                <TextBlock Text="Переводы" HorizontalAlignment="Center" FontSize="14"/>
             </StackPanel>
         </Border>
         <Border BorderBrush="Black" BorderThickness="1" 
@@ -84,7 +84,7 @@
                                             </StackPanel>
                                         </StackPanel>
                                         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
-                                        <TextBlock Text="{Binding AmountFormat}" FontSize="12"/>
+                                        <TextBlock Text="{Binding AmountFormat}" FontSize="12" Foreground="{Binding ColorAmount}"/>
                                         
                                         </StackPanel>
                                     </DockPanel>

@@ -38,7 +38,7 @@ namespace FastMoney.View.Windows
                 icon = "Solid_SackDollar",
                 UserId = App.credit.UserId,
                 type = "Получение кредита",
-                operation1 = $"Кредит на сумму {App.credit.totalAmount}"
+                operation1 = $"Получен кредит на сумму {App.credit.totalAmount}"
             });
             App.db.SaveChanges();
             ListRequest.ItemsSource = App.db.Request.Where(r => r.status == true).ToList();

@@ -45,12 +45,12 @@ namespace FastMoney.View.Windows
             App.user.Card.Where(c => c == CardListView.SelectedItem as Card).FirstOrDefault().amount -= failure_Schedule1.amount;
             App.db.Operation.Add(new Operation
             {
-                amount = App.failure_Schedule.amount,
+                amount = -App.failure_Schedule.amount,
                 date = DateTime.Today,
                 icon = "Solid_HandHoldingDollar",
                 UserId = App.user.id,
                 type = "Оплата кредита",
-                operation1 = $"Кредит на сумму {App.db.Credit.Where(c => c.id == failure_Schedule1.CreditId).Select(c => c.totalAmount).FirstOrDefault()}"
+                operation1 = $"Оплата кредита на сумму {App.db.Credit.Where(c => c.id == failure_Schedule1.CreditId).Select(c => c.totalAmount).FirstOrDefault()}"
             });
             App.db.SaveChanges();
             ScheduleCreditPay.Instance.Schedule.ItemsSource = App.db.Failure_Schedule.Where(f => f.CreditId == App.failure_Schedule.CreditId).ToList();

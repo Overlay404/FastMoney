@@ -84,3 +84,16 @@ C:\Users\Overlay\source\repos\FastMoney\FastMoney\obj\Debug\View\Windows\PayWind
 C:\Users\Overlay\source\repos\FastMoney\FastMoney\obj\Debug\View\Windows\PayWindow.baml
 C:\Users\Overlay\source\repos\FastMoney\FastMoney\obj\Debug\View\Windows\CardSelection.g.cs
 C:\Users\Overlay\source\repos\FastMoney\FastMoney\obj\Debug\View\Windows\CardSelection.baml
+C:\Users\Overlay\source\repos\FastMoney\FastMoney\obj\Debug\View\Pages\CardAddPage.g.cs
+C:\Users\Overlay\source\repos\FastMoney\FastMoney\obj\Debug\View\Pages\CardAddPage.baml
+C:\Users\Overlay\source\repos\FastMoney\FastMoney\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\Overlay\source\repos\FastMoney\FastMoney\bin\Debug\System.Buffers.dll
+C:\Users\Overlay\source\repos\FastMoney\FastMoney\bin\Debug\System.Collections.Immutable.dll
+C:\Users\Overlay\source\repos\FastMoney\FastMoney\bin\Debug\System.Memory.dll
+C:\Users\Overlay\source\repos\FastMoney\FastMoney\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Overlay\source\repos\FastMoney\FastMoney\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Overlay\source\repos\FastMoney\FastMoney\bin\Debug\System.Buffers.xml
+C:\Users\Overlay\source\repos\FastMoney\FastMoney\bin\Debug\System.Collections.Immutable.xml
+C:\Users\Overlay\source\repos\FastMoney\FastMoney\bin\Debug\System.Memory.xml
+C:\Users\Overlay\source\repos\FastMoney\FastMoney\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Overlay\source\repos\FastMoney\FastMoney\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml

@@ -10,5 +10,6 @@ namespace FastMoney.Model
     partial class Operation
     {
         public string AmountFormat => $"{Convert.ToDouble(amount).ToString("C", CultureInfo.CreateSpecificCulture("ru-RU"))}";
+        public string ColorAmount => amount >= 0 ? "Green" : "Red";
     }
 }

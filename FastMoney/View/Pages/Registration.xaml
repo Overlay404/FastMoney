@@ -5,10 +5,42 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:FastMoney.View.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="350"
       Title="Registration">
 
-    <Grid>
-        
+    <Grid Style="{StaticResource Grid}">
+        <Border Background="White" BorderBrush="Black" BorderThickness="2" CornerRadius="10" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10">
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel>
+                    <TextBlock Text="Имя: " HorizontalAlignment="Center"/>
+                    <TextBox x:Name="name" Width="80"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Фамилия: "  HorizontalAlignment="Center"/>
+                    <TextBox x:Name="lasname" Width="100"/>
+                </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Отчество: "  HorizontalAlignment="Center"/>
+                        <TextBox x:Name="patr" Width="100"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Номер телефона:" HorizontalAlignment="Center" Margin="0 20 0 0"/>
+                    <TextBox x:Name="phone"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                <StackPanel>
+                    <TextBlock Text="Логин:" HorizontalAlignment="Center" Margin="0 20 0 0"/>
+                    <TextBox x:Name="login" Width="140"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Пароль:" HorizontalAlignment="Center" Margin="0 20 0 0"/>
+                        <TextBox x:Name="password" Width="140"/>
+                </StackPanel>
+                </StackPanel>
+                <Button Content="Создать учётную запись" Height="30" Margin="0 50 0 0" Click="Button_Click"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>

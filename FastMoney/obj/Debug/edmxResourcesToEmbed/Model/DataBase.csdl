@@ -140,6 +140,7 @@
     <NavigationProperty Name="Deposit" Relationship="FastMoneyModel.FK_Deposit_User" FromRole="User" ToRole="Deposit" />
     <NavigationProperty Name="Operation" Relationship="FastMoneyModel.FK_Operation_User" FromRole="User" ToRole="Operation" />
     <NavigationProperty Name="Role" Relationship="FastMoneyModel.FK_User_Role" FromRole="User" ToRole="Role" />
+    <Property Name="phone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK_Card_User">
     <End Type="FastMoneyModel.User" Role="User" Multiplicity="0..1" />

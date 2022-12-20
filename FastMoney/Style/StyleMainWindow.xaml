@@ -125,6 +125,47 @@
     </Style>
     <!--#endregion-->
 
+    <!--#region RadioButton для страницы карты -->
+    <Style TargetType="RadioButton" x:Key="CardAddButton">
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <StackPanel Width="70">
+                        <TextBlock Text="Карты" Margin="5 11 5 0" HorizontalAlignment="Center" FontSize="14"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="RadioButton">
+                            <StackPanel>
+                                <TextBlock Text="Карты" Margin="5 11 5 0"  HorizontalAlignment="Center" FontSize="14"/>
+                                <Rectangle  Width="70" Stroke="Black" Margin="0 0 0 -3" Height="2"/>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="RadioButton">
+                            <StackPanel>
+                                <TextBlock Text="Карты" Margin="5 11 5 0"  HorizontalAlignment="Center" FontSize="14"/>
+                                <Rectangle  Width="70" Stroke="#FF737373" Margin="0 0 0 -3" Height="2"/>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <!--#endregion-->
+
     <Style TargetType="ListBoxItem">
         <Setter Property="IsEnabled" Value="False"/>
     </Style>
@@ -139,5 +180,29 @@
                 <Setter Property="Background" Value="#FFF1F1F1"/>
             </Trigger>
         </Style.Triggers>
+    </Style>
+    <Style TargetType="Button">
+        <Setter Property="Background" Value="#FF212121"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="5"
+                                Background="{TemplateBinding Background}">
+
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="TextBox">
+        <Setter Property="Background" Value="#FF2D2D2D"/>
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
+    <Style TargetType="PasswordBox">
+        <Setter Property="Background" Value="#FF2D2D2D"/>
+        <Setter Property="Foreground" Value="White"/>
     </Style>
 </ResourceDictionary>

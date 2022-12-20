@@ -82,6 +82,7 @@
     <EntitySetMapping Name="User">
       <EntityTypeMapping TypeName="FastMoneyModel.User">
         <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="phone" ColumnName="phone" />
           <ScalarProperty Name="RoleId" ColumnName="RoleId" />
           <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="login" ColumnName="login" />

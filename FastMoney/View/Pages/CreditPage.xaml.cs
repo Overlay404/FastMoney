@@ -72,7 +72,7 @@ namespace FastMoney.View.Pages
             (sender as Border).Background = new SolidColorBrush(Colors.WhiteSmoke);
         }
 
-        private void Border_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (Years == null || PartialAmount == null || Rate == null || Type == null || TotalAmount == null) return;
             if (Type.SelectedIndex == 1)
@@ -83,7 +83,7 @@ namespace FastMoney.View.Pages
             new ScheduleCredit(new CreditClass(Convert.ToInt32(TotalAmount.Value), Convert.ToInt32(PartialAmount.Text), Convert.ToInt32(Years.Value), Type.SelectedIndex, rate, false, null)).Show();
         }
 
-        private void Border_MouseUp_1(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             if (Years == null || PartialAmount == null || Rate == null || Type == null || TotalAmount == null) return;
             if (App.card == null)
@@ -98,5 +98,6 @@ namespace FastMoney.View.Pages
             }
             new ScheduleCredit(new CreditClass(Convert.ToInt32(TotalAmount.Value), Convert.ToInt32(PartialAmount.Text), Convert.ToInt32(Years.Value), Type.SelectedIndex, rate, true, App.card)).Show();
         }
+
     }
 }

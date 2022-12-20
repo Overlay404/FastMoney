@@ -45,7 +45,12 @@
 
             <RadioButton VerticalAlignment="Top" 
                          Style="{StaticResource TransferRadioButton}"
-                         Command="{Binding GoPage}" CommandParameter="{Binding TransferPage}"/>
+                         Command="{Binding GoPage}" Margin="0 0 20 0" 
+                         CommandParameter="{Binding TransferPage}"/>
+            
+            <RadioButton VerticalAlignment="Top" 
+                         Style="{StaticResource CardAddButton}"
+                         Command="{Binding GoPage}" CommandParameter="{Binding CardAddPage}"/>
 
         </StackPanel>
         <!--#endregion-->

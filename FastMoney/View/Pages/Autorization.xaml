@@ -18,18 +18,18 @@
             <RowDefinition Height="11*"/>
             <RowDefinition Height="28*"/>
         </Grid.RowDefinitions>
-        <Button HorizontalAlignment="Right" VerticalAlignment="Top" Content="Нет учётной записи" FontSize="10" Margin="10 10">
+        <Button HorizontalAlignment="Right" VerticalAlignment="Top" Content="Нет учётной записи" FontSize="10" Margin="10 10" Height="20" Width="100">
             <Button.Command>
                 <command:GoRegistrtionPage/>
             </Button.Command>
         </Button>
         <StackPanel Grid.Row="2" HorizontalAlignment="Center">
             <TextBlock Text="Пароль"/>
-            <PasswordBox x:Name="password" Width="200"/>
+            <PasswordBox x:Name="password" Width="200" Height="20"/>
         </StackPanel>
         <StackPanel Grid.Row="1" HorizontalAlignment="Center">
             <TextBlock Text="Логин"/>
-            <TextBox x:Name="login" Width="200"/>
+            <TextBox x:Name="login" Width="200" Height="20" Foreground="Aqua"/>
         </StackPanel>
         <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
             <CheckBox x:Name="saveDataCheckBox" Content="Чужой компьютер"/>

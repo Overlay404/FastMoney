@@ -28,7 +28,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
                 <TextBlock x:Name="SumAmount" Text="Сумма к оплате " Margin="0 0 0 10"/>
-                <Button Content="Подтвердить оплату" HorizontalAlignment="Center" Click="Button_Click"/>
+                <Button Content="Подтвердить оплату" HorizontalAlignment="Center" Width="125" Height="20" Click="Button_Click"/>
             </StackPanel>
         </Border>
     </Grid>

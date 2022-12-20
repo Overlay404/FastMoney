@@ -49,12 +49,9 @@
                 <TextBlock x:Name="PartialAmount" Text="87500" FontSize="16" Margin="0 0 0 20"/>
                 <TextBlock Text="Полная сумма кредита"/>
                 <TextBlock x:Name="TotalSum" Text="1050000" FontSize="16"/>
-                <Border CornerRadius="5" BorderBrush="Black" BorderThickness="2" Padding="2" MouseDown="Border_MouseDown" Width="150" Margin="0 40 0 10" MouseUp="Border_MouseUp">
-                        <TextBlock Text="График погашения" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    </Border>
-                <Border CornerRadius="5" BorderBrush="Black" BorderThickness="2" Padding="2" Width="150" MouseUp="Border_MouseUp_1">
-                    <TextBlock Text="Подать заявку на кредит" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                </Border>
+                <Button Padding="2" Width="150" Height="20" Margin="0 40 0 10" Content="График погашения" Click="Button_Click"/>
+                <Button Height="20" Padding="2" Width="150" Click="Button_Click_1" Content="Подать заявку на кредит"/>
+
             </StackPanel>
         </Border>
 

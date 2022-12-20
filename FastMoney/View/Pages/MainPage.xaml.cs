@@ -31,7 +31,7 @@ namespace FastMoney.View.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            OperationsItemControl.ItemsSource = App.db.Operation.ToList();
+            OperationsItemControl.ItemsSource = App.user.Operation.ToList();
 
             CollectionView collectionView = (CollectionView)CollectionViewSource.GetDefaultView(OperationsItemControl.ItemsSource);
             PropertyGroupDescription groupDescription = new PropertyGroupDescription("date");

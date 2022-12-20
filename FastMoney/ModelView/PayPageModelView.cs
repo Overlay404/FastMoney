@@ -15,7 +15,7 @@ namespace FastMoney.ModelView
         #region Field
 
         #region Credits
-        private IEnumerable<Credit> _Credits = App.db.Credit;
+        private IEnumerable<Credit> _Credits = App.db.Credit.Where(c => c.UserId == App.user.id);
 
         public IEnumerable<Credit> Credit { get => _Credits.ToList(); set => Set(ref _Credits, value); } 
         #endregion

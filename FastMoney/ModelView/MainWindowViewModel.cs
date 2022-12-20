@@ -33,6 +33,11 @@ namespace FastMoney.ModelView
         public Page TransferPage { get => _TransferPage; }
         #endregion
 
+        #region CardAddPage        
+        private readonly Page _CardAddPage = new View.Pages.CardAddPage();
+        public Page CardAddPage { get => _CardAddPage; }
+        #endregion
+
         #region MainWindow        
         private readonly MainWindow _MainWindow = MainWindow.Instanse;
         public MainWindow MainWindow { get => _MainWindow; }
