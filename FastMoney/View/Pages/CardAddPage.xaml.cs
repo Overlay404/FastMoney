@@ -24,5 +24,26 @@ namespace FastMoney.View.Pages
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (number.Text.Trim().All(n => char.IsDigit(n) == false)) return;
+            if(number.Text.Trim().Count() != 16) return;
+
+            App.db.Card.Add(new Model.Card
+            {
+                 number = number.Text.Trim(),
+                 amount = 0,
+                 UserId = App.user.id,
+            });
+            App.db.SaveChanges();
+            MessageBox.Show($"Вы добавили новую карту с номером {number.Text.Trim()}");
+            MainWindow.Instanse.walletList.ItemsSource = App.db.Card.Where(c => c.UserId == App.user.id).ToList();
+        }
+
+        private void number_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (number.Text.Trim().Count() > 16) number.Text = number.Text.Trim().Substring(0, number.Text.Count() - 1);
+        }
     }
 }

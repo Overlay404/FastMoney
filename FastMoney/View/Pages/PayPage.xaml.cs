@@ -24,9 +24,11 @@ namespace FastMoney.View.Pages
     /// </summary>
     public partial class PayPage : Page
     {
+        public static PayPage Instance;
         public PayPage()
         {
             InitializeComponent();
+            Instance = this;
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)

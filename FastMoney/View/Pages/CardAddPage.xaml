@@ -13,8 +13,9 @@
         <Border HorizontalAlignment="Center" VerticalAlignment="Center" Background="White" CornerRadius="50" BorderThickness="5" BorderBrush="Gray" Height="343" Width="438">
             <Grid>
                 <fa:ImageAwesome Icon="Solid_CreditCard"/>
-                <TextBox Margin="0 72 0 0" FontSize="45" Height="70" VerticalAlignment="Top" Background="White" Foreground="Black"/>
+                <TextBox x:Name="number" Margin="0 72 0 0" FontSize="45" Height="70" VerticalAlignment="Top" Background="White" Foreground="Black" TextChanged="number_TextChanged"/>
             </Grid>
         </Border>
+        <Button Content="Добавить новую карту" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 10" Width="140" Height="30" Click="Button_Click"/>
     </Grid>
 </Page>

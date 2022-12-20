@@ -1,5 +1,6 @@
 ﻿using FastMoney.Classes;
 using FastMoney.Model;
+using FastMoney.View.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -99,6 +100,9 @@ namespace FastMoney.View.Windows
             }
             (sender as DataGrid).ItemsSource = creditScheduleClasses;
             App.db.SaveChanges();
+
+            PayPage.Instance.CreditsListView.ItemsSource = App.db.Credit.Where(c => c.UserId == App.user.id).ToList();
+            MainWindow.Instanse.creditList.ItemsSource = App.db.Credit.Where(c => c.UserId == App.user.id).ToList();
         }
     }
 }
