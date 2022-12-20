@@ -20,6 +20,7 @@
         <AssociationConnector Association="FastMoneyModel.FK_Deposit_User" />
         <AssociationConnector Association="FastMoneyModel.FK_Operation_User" />
         <AssociationConnector Association="FastMoneyModel.FK_User_Role" />
+        <AssociationConnector Association="FastMoneyModel.FK_Credit_Card" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

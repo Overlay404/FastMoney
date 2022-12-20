@@ -26,6 +26,7 @@
           <Property Name="UserId" Type="int" />
           <Property Name="type" Type="nvarchar" MaxLength="50" />
           <Property Name="status" Type="nvarchar" MaxLength="50" />
+          <Property Name="CardId" Type="int" />
         </EntityType>
         <EntityType Name="Deposit">
           <Key>
@@ -66,6 +67,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="50" />
           <Property Name="CreditId" Type="int" />
+          <Property Name="status" Type="bit" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -95,6 +97,18 @@
             </Principal>
             <Dependent Role="Card">
               <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Credit_Card">
+          <End Role="Card" Type="Self.Card" Multiplicity="0..1" />
+          <End Role="Credit" Type="Self.Credit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Card">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Credit">
+              <PropertyRef Name="CardId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -183,6 +197,10 @@
             <End Role="User" EntitySet="User" />
             <End Role="Card" EntitySet="Card" />
           </AssociationSet>
+          <AssociationSet Name="FK_Credit_Card" Association="Self.FK_Credit_Card">
+            <End Role="Card" EntitySet="Card" />
+            <End Role="Credit" EntitySet="Credit" />
+          </AssociationSet>
           <AssociationSet Name="FK_Credit_User" Association="Self.FK_Credit_User">
             <End Role="User" EntitySet="User" />
             <End Role="Credit" EntitySet="Credit" />
@@ -249,6 +267,10 @@
             <End Role="Role" EntitySet="Role" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
+          <AssociationSet Name="FK_Credit_Card" Association="FastMoneyModel.FK_Credit_Card">
+            <End Role="Card" EntitySet="Card" />
+            <End Role="Credit" EntitySet="Credit" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Card">
           <Key>
@@ -259,6 +281,7 @@
           <Property Name="UserId" Type="Int32" />
           <Property Name="number" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="User" Relationship="FastMoneyModel.FK_Card_User" FromRole="Card" ToRole="User" />
+          <NavigationProperty Name="Credit" Relationship="FastMoneyModel.FK_Credit_Card" FromRole="Card" ToRole="Credit" />
         </EntityType>
         <EntityType Name="Credit">
           <Key>
@@ -275,6 +298,8 @@
           <NavigationProperty Name="User" Relationship="FastMoneyModel.FK_Credit_User" FromRole="Credit" ToRole="User" />
           <NavigationProperty Name="Failure_Schedule" Relationship="FastMoneyModel.FK_Failure_Schedule_Credit" FromRole="Credit" ToRole="Failure_Schedule" />
           <NavigationProperty Name="Request" Relationship="FastMoneyModel.FK_Request_Credit" FromRole="Credit" ToRole="Request" />
+          <Property Name="CardId" Type="Int32" />
+          <NavigationProperty Name="Card" Relationship="FastMoneyModel.FK_Credit_Card" FromRole="Credit" ToRole="Card" />
         </EntityType>
         <EntityType Name="Deposit">
           <Key>
@@ -319,6 +344,7 @@
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CreditId" Type="Int32" />
           <NavigationProperty Name="Credit" Relationship="FastMoneyModel.FK_Request_Credit" FromRole="Request" ToRole="Credit" />
+          <Property Name="status" Type="Boolean" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -429,6 +455,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Credit_Card">
+          <End Type="FastMoneyModel.Card" Role="Card" Multiplicity="0..1" />
+          <End Type="FastMoneyModel.Credit" Role="Credit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Card">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Credit">
+              <PropertyRef Name="CardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -448,6 +486,7 @@
           <EntitySetMapping Name="Credit">
             <EntityTypeMapping TypeName="FastMoneyModel.Credit">
               <MappingFragment StoreEntitySet="Credit">
+                <ScalarProperty Name="CardId" ColumnName="CardId" />
                 <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="type" ColumnName="type" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -497,6 +536,7 @@
           <EntitySetMapping Name="Request">
             <EntityTypeMapping TypeName="FastMoneyModel.Request">
               <MappingFragment StoreEntitySet="Request">
+                <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="CreditId" ColumnName="CreditId" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="id" ColumnName="id" />

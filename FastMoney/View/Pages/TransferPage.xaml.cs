@@ -24,5 +24,10 @@ namespace FastMoney.View.Pages
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            number.Text.Trim();
+        }
     }
 }

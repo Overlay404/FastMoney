@@ -10,11 +10,11 @@
         Title="AutorizationRegistration" Height="450" Width="350" WindowStyle="None">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="39*"/>
         </Grid.RowDefinitions>
         <Rectangle x:Name="TopPanel" VerticalAlignment="Center" 
-                   Height="30" Fill="White" RadiusX="0" RadiusY="0">
+                   Height="20" Fill="White" RadiusX="0" RadiusY="0">
             <Rectangle.InputBindings>
                 <MouseBinding MouseAction="LeftClick">
                     <MouseBinding.Command>
@@ -26,9 +26,9 @@
         <StackPanel 
             HorizontalAlignment="Right" 
             VerticalAlignment="Center"
-            Orientation="Horizontal" Width="63">
+            Orientation="Horizontal" Width="50">
             <Border HorizontalAlignment="Right" 
-                Width="20" Height="20"
+                Width="15" Height="15"
                 Background="White">
                 <fa:ImageAwesome Icon="Solid_WindowMinimize"
                                  VerticalAlignment="Center"/>
@@ -42,8 +42,8 @@
             </Border>
 
             <fa:ImageAwesome Icon="Solid_RectangleXmark" 
-                         Height="20"  
-                         Margin="10 0 10 0"
+                         Height="15"  
+                         Margin="5 0 5 0"
                          PrimaryColor="#FFFF0E0E">
                 <fa:ImageAwesome.InputBindings>
                     <MouseBinding MouseAction="LeftClick">
@@ -54,6 +54,6 @@
                 </fa:ImageAwesome.InputBindings>
             </fa:ImageAwesome>
         </StackPanel>
-        <Frame x:Name="frameAuthReg" Source="../Pages/Autorization.xaml" Grid.Row="1"/>
+        <Frame x:Name="frameAuthReg" Source="../Pages/Autorization.xaml" Grid.Row="1" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

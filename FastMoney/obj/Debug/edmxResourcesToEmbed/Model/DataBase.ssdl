@@ -21,6 +21,7 @@
     <Property Name="UserId" Type="int" />
     <Property Name="type" Type="nvarchar" MaxLength="50" />
     <Property Name="status" Type="nvarchar" MaxLength="50" />
+    <Property Name="CardId" Type="int" />
   </EntityType>
   <EntityType Name="Deposit">
     <Key>
@@ -61,6 +62,7 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="nvarchar" MaxLength="50" />
     <Property Name="CreditId" Type="int" />
+    <Property Name="status" Type="bit" />
   </EntityType>
   <EntityType Name="Role">
     <Key>
@@ -90,6 +92,18 @@
       </Principal>
       <Dependent Role="Card">
         <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Credit_Card">
+    <End Role="Card" Type="Self.Card" Multiplicity="0..1" />
+    <End Role="Credit" Type="Self.Credit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Card">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Credit">
+        <PropertyRef Name="CardId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -177,6 +191,10 @@
     <AssociationSet Name="FK_Card_User" Association="Self.FK_Card_User">
       <End Role="User" EntitySet="User" />
       <End Role="Card" EntitySet="Card" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Credit_Card" Association="Self.FK_Credit_Card">
+      <End Role="Card" EntitySet="Card" />
+      <End Role="Credit" EntitySet="Credit" />
     </AssociationSet>
     <AssociationSet Name="FK_Credit_User" Association="Self.FK_Credit_User">
       <End Role="User" EntitySet="User" />

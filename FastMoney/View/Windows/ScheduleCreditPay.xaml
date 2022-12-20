@@ -1,0 +1,23 @@
+﻿<Window x:Class="FastMoney.View.Windows.ScheduleCreditPay"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FastMoney.View.Windows"
+        mc:Ignorable="d"
+        Title="ScheduleCreditPay" Height="450" Width="800">
+    <DataGrid x:Name="Schedule" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserSortColumns="False">
+        <DataGrid.Columns>
+            <DataGridTextColumn Header="Дата" Binding="{Binding date, StringFormat=d, ConverterCulture=ru}" Width="200"/>
+            <DataGridTextColumn Header="Оплата" Binding="{Binding amount}" Width="200"/>
+            <DataGridTextColumn Header="Статус" Binding="{Binding FormatStatus}" Width="200"/>
+            <DataGridTemplateColumn Header="Оплата" Width="200">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <Button HorizontalAlignment="Center" Content="Оплатить" Visibility="{Binding Visiblity}" Click="Button_Click"/>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+        </DataGrid.Columns>
+    </DataGrid>
+</Window>

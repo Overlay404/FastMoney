@@ -36,6 +36,10 @@ namespace FastMoney.View.Pages
         {
             TextChanged();
         }
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            TextChanged();
+        }
 
         private void TextChanged()
         {
@@ -73,21 +77,26 @@ namespace FastMoney.View.Pages
             if (Years == null || PartialAmount == null || Rate == null || Type == null || TotalAmount == null) return;
             if (Type.SelectedIndex == 1)
             {
-                new ScheduleCredit(new CreditClass(Convert.ToInt32(TotalAmount.Value), 0, Convert.ToInt32(Years.Value), Type.SelectedIndex, rate, false)).Show();
+                new ScheduleCredit(new CreditClass(Convert.ToInt32(TotalAmount.Value), 0, Convert.ToInt32(Years.Value), Type.SelectedIndex, rate, false, null)).Show();
                 return;
             }
-            new ScheduleCredit(new CreditClass(Convert.ToInt32(TotalAmount.Value), Convert.ToInt32(PartialAmount.Text), Convert.ToInt32(Years.Value), Type.SelectedIndex, rate, false)).Show();
+            new ScheduleCredit(new CreditClass(Convert.ToInt32(TotalAmount.Value), Convert.ToInt32(PartialAmount.Text), Convert.ToInt32(Years.Value), Type.SelectedIndex, rate, false, null)).Show();
         }
 
         private void Border_MouseUp_1(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             if (Years == null || PartialAmount == null || Rate == null || Type == null || TotalAmount == null) return;
-            if (Type.SelectedIndex == 1)
+            if (App.card == null)
             {
-                new ScheduleCredit(new CreditClass(Convert.ToInt32(TotalAmount.Value), 0, Convert.ToInt32(Years.Value), Type.SelectedIndex, rate, true)).Show();
+                new CardSelection().Show();
                 return;
             }
-            new ScheduleCredit(new CreditClass(Convert.ToInt32(TotalAmount.Value), Convert.ToInt32(PartialAmount.Text), Convert.ToInt32(Years.Value), Type.SelectedIndex, rate, true)).Show();
+            if (Type.SelectedIndex == 1)
+            {
+                new ScheduleCredit(new CreditClass(Convert.ToInt32(TotalAmount.Value), 0, Convert.ToInt32(Years.Value), Type.SelectedIndex, rate, true, App.card)).Show();
+                return;
+            }
+            new ScheduleCredit(new CreditClass(Convert.ToInt32(TotalAmount.Value), Convert.ToInt32(PartialAmount.Text), Convert.ToInt32(Years.Value), Type.SelectedIndex, rate, true, App.card)).Show();
         }
     }
 }

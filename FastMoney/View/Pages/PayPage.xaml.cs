@@ -1,4 +1,6 @@
-﻿using FastMoney.ModelView;
+﻿using FastMoney.Model;
+using FastMoney.ModelView;
+using FastMoney.View.Windows;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -29,7 +31,11 @@ namespace FastMoney.View.Pages
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            
+            if((CreditsListView.SelectedItem as Credit).status == "Одобрен")
+            {
+                new ScheduleCreditPay((CreditsListView.SelectedItem as Credit).id).Show();
+            }
         }
     }
 }

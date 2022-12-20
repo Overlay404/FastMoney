@@ -29,6 +29,7 @@ namespace FastMoney.View.Windows
         readonly double rate;
         double TotalAmount;
         bool IsSave;
+        Card card;
 
 
         public ScheduleCredit(Object credit)
@@ -41,6 +42,7 @@ namespace FastMoney.View.Windows
             type = (credit as CreditClass).Type;
             rate = (credit as CreditClass).Rate;
             IsSave = (credit as CreditClass).IsSave;
+            card = (credit as CreditClass).card;
         }
 
         private void DataGrid_Loaded(object sender, RoutedEventArgs e)
@@ -55,7 +57,15 @@ namespace FastMoney.View.Windows
                     rate = Convert.ToInt32(rate * 100),
                     UserId = App.user.id,
                     type = type == 1 ? "Дифференцированный" : "Ауинтентный",
-                    status = "Обрабатывается"
+                    status = "Обрабатывается",
+                    Card = card
+                });
+                App.db.SaveChanges();
+                App.db.Request.Add(new Request
+                {
+                    CreditId = App.db.Credit.Local.LastOrDefault().id,
+                    name = "Одобрить кредит?",
+                    status = true
                 });
                 App.db.SaveChanges();
             }
@@ -68,13 +78,13 @@ namespace FastMoney.View.Windows
                 if (type == 1)
                 {
                     PartialSum = Convert.ToInt32((TotalAmount / (Years * 12)) + (TotalAmount - (TotalAmount / (Years * 12))) * (i + 1) * (rate / 12));
-                    creditScheduleClasses.Add(new CreditScheduleClass(Convert.ToInt32(TotalSum).ToString(), PartialSum.ToString(), DateTime.Today.AddMonths(i).ToString("d")));
+                    creditScheduleClasses.Add(new CreditScheduleClass(Convert.ToInt32(TotalSum).ToString(), PartialSum.ToString(), DateTime.Today.AddMonths(i + 1).ToString("d")));
                 }
                 else
                 {
                     if (TotalSum < 0)
                         TotalSum = 0; 
-                    creditScheduleClasses.Add(new CreditScheduleClass(Convert.ToInt32(TotalSum).ToString(), Convert.ToInt32(PartialSum).ToString(), DateTime.Today.AddMonths(i).ToString("d")));
+                    creditScheduleClasses.Add(new CreditScheduleClass(Convert.ToInt32(TotalSum).ToString(), Convert.ToInt32(PartialSum).ToString(), DateTime.Today.AddMonths(i + 1).ToString("d")));
                 }
                 if (IsSave)
                 {

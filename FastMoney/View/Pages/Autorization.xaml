@@ -9,7 +9,7 @@
       d:DesignHeight="450" d:DesignWidth="350"
       Title="Autorization">
 
-    <Grid>
+    <Grid Style="{StaticResource Grid}">
         <Grid.RowDefinitions>
             <RowDefinition Height="40*"/>
             <RowDefinition Height="11*"/>

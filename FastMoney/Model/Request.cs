@@ -17,6 +17,7 @@ namespace FastMoney.Model
         public int id { get; set; }
         public string name { get; set; }
         public Nullable<int> CreditId { get; set; }
+        public Nullable<bool> status { get; set; }
     
         public virtual Credit Credit { get; set; }
     }

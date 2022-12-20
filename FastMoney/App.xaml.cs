@@ -20,6 +20,9 @@ namespace FastMoney
 
 
         public static User user;
+        public static Credit credit;
+        public static Failure_Schedule failure_Schedule;
+        public static Card card;
 
         public App()
         {

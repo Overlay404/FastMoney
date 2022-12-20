@@ -9,6 +9,16 @@
       Title="TransferPage">
 
     <Grid Style="{StaticResource Grid}">
-        <TextBlock Text="Взять кредит" FontSize="16" Margin="10 10 0 0"/>
+        <TextBlock Text="Перевод клиенту банка" FontSize="16" Margin="10 10 0 0"/>
+        <Border CornerRadius="10" Background="White" BorderBrush="Black" BorderThickness="2" Margin="0 50 0 25" Padding="20 10 20 0">
+            <StackPanel>
+                <TextBlock Text="Получатель" FontSize="16" FontWeight="Medium" Margin="0 0 0 20"/>
+                <TextBlock Text="Номер телефона" FontSize="14"/>
+                <TextBox x:Name="number" Background="AntiqueWhite" Margin="0 0 0 20"/>
+                <TextBlock Text="Сумма для перевода" FontSize="14"/>
+                <TextBox x:Name="amount" Background="AntiqueWhite"/>
+                <Button Content="Перевести деньги" Margin="0 150 0 0" Click="Button_Click"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>

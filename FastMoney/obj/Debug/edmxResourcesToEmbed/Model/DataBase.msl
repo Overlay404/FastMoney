@@ -14,6 +14,7 @@
     <EntitySetMapping Name="Credit">
       <EntityTypeMapping TypeName="FastMoneyModel.Credit">
         <MappingFragment StoreEntitySet="Credit">
+          <ScalarProperty Name="CardId" ColumnName="CardId" />
           <ScalarProperty Name="status" ColumnName="status" />
           <ScalarProperty Name="type" ColumnName="type" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -63,6 +64,7 @@
     <EntitySetMapping Name="Request">
       <EntityTypeMapping TypeName="FastMoneyModel.Request">
         <MappingFragment StoreEntitySet="Request">
+          <ScalarProperty Name="status" ColumnName="status" />
           <ScalarProperty Name="CreditId" ColumnName="CreditId" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="id" ColumnName="id" />

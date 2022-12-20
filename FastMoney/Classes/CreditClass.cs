@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FastMoney.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,8 @@ namespace FastMoney.Classes
         public int Type;
         public double Rate;
         public bool IsSave;
-        public CreditClass(int totalSum, int partialSum, int years, int type, double rate, bool isSave)
+        public Card card;
+        public CreditClass(int totalSum, int partialSum, int years, int type, double rate, bool isSave, Card _card)
         {
             TotalSum = totalSum;
             PartialSum = partialSum;
@@ -23,6 +25,7 @@ namespace FastMoney.Classes
             Type = type;
             Rate = rate;
             IsSave = isSave;
+            card = _card;
         }
     }
 }

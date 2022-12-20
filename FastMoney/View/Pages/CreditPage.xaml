@@ -6,7 +6,7 @@
       xmlns:modelview="clr-namespace:FastMoney.ModelView"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="CreditPage">
+      Title="CreditPage" Loaded="Page_Loaded">
     <Page.DataContext>
         <modelview:CreditPageViewModel/>
     </Page.DataContext>

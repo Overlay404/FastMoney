@@ -84,7 +84,6 @@ namespace FastMoney.ModelView
         private bool CanDragMoveCommandExecute(object parameter) => true;
         private void OnDragMoveCommandExecute(object parameter)
         {
-
             MainWindow.Instanse.DragMove();
         }
         #endregion 

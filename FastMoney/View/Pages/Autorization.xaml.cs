@@ -49,7 +49,10 @@ namespace FastMoney.View.Pages
             }
             Properties.Settings.Default.Save();
 
-            new MainWindow().Show();
+            if (App.user.RoleId == 1)
+                new MainWindow().Show();
+            else
+                new ManagerWindow().Show();
             AutorizationRegistration.Instance.Close();
         }
     }
