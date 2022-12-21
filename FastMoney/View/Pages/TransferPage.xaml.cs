@@ -62,6 +62,7 @@ namespace FastMoney.View.Pages
             Card.ItemsSource = App.db.Card.Where(c => c.UserId == App.user.id).ToList();
             Card.SelectedIndex = 0;
             App.db.SaveChanges();
+            MainWindow.Instanse.walletList.ItemsSource = App.db.Card.Where(c => c.UserId == App.user.id).ToList();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)

@@ -29,6 +29,7 @@ namespace FastMoney.View.Pages
         {
             InitializeComponent();
             Instance = this;
+            CreditsListView.ItemsSource = App.db.Credit.Where(c => c.UserId == App.user.id).ToList();
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)

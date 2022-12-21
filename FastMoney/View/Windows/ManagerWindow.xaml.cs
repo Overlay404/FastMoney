@@ -47,6 +47,7 @@ namespace FastMoney.View.Windows
         private void ImageAwesome_MouseUp_1(object sender, MouseButtonEventArgs e)
         {
             ChangedDataBase("Не одобрен");
+            App.db.SaveChanges();
             ListRequest.ItemsSource = App.db.Request.Where(r => r.status == true).ToList();
         }
         private void ChangedDataBase(string text)
