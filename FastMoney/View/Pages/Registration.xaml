@@ -4,11 +4,17 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:FastMoney.View.Pages"
+      xmlns:command="clr-namespace:FastMoney.Commands"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="350"
       Title="Registration">
 
     <Grid Style="{StaticResource Grid}">
+        <Button HorizontalAlignment="Right" VerticalAlignment="Top" Content="Вернуться" FontSize="10" Margin="10 10" Height="20" Width="60">
+            <Button.Command>
+                <command:GoAutorizationPage/>
+            </Button.Command>
+        </Button>
         <Border Background="White" BorderBrush="Black" BorderThickness="2" CornerRadius="10" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10">
         <StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">

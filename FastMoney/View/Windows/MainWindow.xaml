@@ -100,17 +100,28 @@
                    BorderBrush="Black"
                    CornerRadius="10" BorderThickness="1"
                    Margin="0,67,0,0" Height="86"
-                   Style="{StaticResource BorderNavigate}">
+                   Background="White">
             <DockPanel>
                 <StackPanel Orientation="Horizontal">
                     <fa:ImageAwesome Icon="Regular_User" Width="30" HorizontalAlignment="Left" Panel.ZIndex="1" Margin="40 0 0 0"/>
                     <Ellipse Width="50" Height="50" Fill="#FFC8C8C8" Margin="-40 0 0 0"/>
                     <StackPanel>
-                        <TextBlock Text="{Binding NameClient}" Margin="10 20 0 0" FontSize="12" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding NameClient}" Margin="10 20 0 0" FontSize="10" FontWeight="Bold"/>
                         <TextBlock Text="Профиль" Margin="10 8 0 0" FontSize="12"/>
                     </StackPanel>
                 </StackPanel>
-                <fa:ImageAwesome Icon="Solid_Gear" Width="20" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 15 15 0"/>
+                <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal">
+                    <fa:ImageAwesome Icon="Solid_Gear" Width="20" Margin="0 15 15 0"/>
+                    <fa:ImageAwesome Icon="Solid_ArrowRightFromBracket" Width="20" Margin="0 15 15 0">
+                        <fa:ImageAwesome.InputBindings>
+                            <MouseBinding MouseAction="LeftClick">
+                                <MouseBinding.Command>
+                                    <command:Deautorization/>
+                                </MouseBinding.Command>
+                            </MouseBinding>
+                        </fa:ImageAwesome.InputBindings>
+                    </fa:ImageAwesome>
+                </StackPanel>
             </DockPanel>
         </Border>
         <!--#endregion-->

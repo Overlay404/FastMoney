@@ -198,11 +198,11 @@
         </Setter>
     </Style>
     <Style TargetType="TextBox">
-        <Setter Property="Background" Value="#FF2D2D2D"/>
-        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="#FFCCCCCC"/>
+        <Setter Property="Foreground" Value="Black"/>
     </Style>
     <Style TargetType="PasswordBox">
-        <Setter Property="Background" Value="#FF2D2D2D"/>
-        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="#FFCCCCCC"/>
+        <Setter Property="Foreground" Value="Black"/>
     </Style>
 </ResourceDictionary>

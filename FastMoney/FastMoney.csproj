@@ -96,7 +96,9 @@
     </ApplicationDefinition>
     <Compile Include="Classes\CreditClass.cs" />
     <Compile Include="Classes\CreditScheduleClass.cs" />
+    <Compile Include="Commands\Deautorization.cs" />
     <Compile Include="Commands\DragMoveCommand.cs" />
+    <Compile Include="Commands\GoAutorizationPage.cs" />
     <Compile Include="Commands\GoRegistrtionPage.cs" />
     <Compile Include="Commands\MinimazeWindowCommandAuth.cs" />
     <Compile Include="ModelView\GoAutorizationPage.cs" />
