@@ -106,12 +106,20 @@
                     <fa:ImageAwesome Icon="Regular_User" Width="30" HorizontalAlignment="Left" Panel.ZIndex="1" Margin="40 0 0 0"/>
                     <Ellipse Width="50" Height="50" Fill="#FFC8C8C8" Margin="-40 0 0 0"/>
                     <StackPanel>
-                        <TextBlock Text="{Binding NameClient}" Margin="10 20 0 0" FontSize="10" FontWeight="Bold"/>
+                        <TextBlock x:Name="UserFullName" Text="{Binding NameClient.FullName}" Margin="10 20 0 0" FontSize="10" FontWeight="Bold"/>
                         <TextBlock Text="Профиль" Margin="10 8 0 0" FontSize="12"/>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal">
-                    <fa:ImageAwesome Icon="Solid_Gear" Width="20" Margin="0 15 15 0"/>
+                    <fa:ImageAwesome Icon="Solid_Gear" Width="20" Margin="0 15 15 0">
+                        <fa:ImageAwesome.InputBindings>
+                            <MouseBinding MouseAction="LeftClick">
+                                <MouseBinding.Command>
+                                    <command:EditUserCommand/>
+                                </MouseBinding.Command>
+                            </MouseBinding>
+                        </fa:ImageAwesome.InputBindings>
+                    </fa:ImageAwesome>
                     <fa:ImageAwesome Icon="Solid_ArrowRightFromBracket" Width="20" Margin="0 15 15 0">
                         <fa:ImageAwesome.InputBindings>
                             <MouseBinding MouseAction="LeftClick">

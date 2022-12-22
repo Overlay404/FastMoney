@@ -1,0 +1,50 @@
+﻿<Window x:Class="FastMoney.View.Windows.EditUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FastMoney.View.Windows"
+        xmlns:command="clr-namespace:FastMoney.Commands"
+        xmlns:modelview="clr-namespace:FastMoney.ModelView"
+        mc:Ignorable="d"
+        Title="EditUser" Height="350" Width="340" WindowStyle="None">
+    <Window.DataContext>
+        <modelview:EditUserModelView/>
+    </Window.DataContext>
+    <Grid Style="{StaticResource Grid}">
+        <Button HorizontalAlignment="Right" VerticalAlignment="Top" Content="Вернуться" FontSize="10" Margin="10 10" Height="20" Width="60" Command="{Binding Return}"/>
+        <Border Background="White" BorderBrush="Black" BorderThickness="2" CornerRadius="10" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel>
+                        <TextBlock Text="Имя: " HorizontalAlignment="Center"/>
+                        <TextBox x:Name="name" Text="{Binding User.name, UpdateSourceTrigger=PropertyChanged}" Width="80"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Фамилия: "  HorizontalAlignment="Center"/>
+                        <TextBox x:Name="lasname" Text="{Binding User.lastname, UpdateSourceTrigger=PropertyChanged}" Width="100"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Отчество: "  HorizontalAlignment="Center"/>
+                        <TextBox x:Name="patr" Text="{Binding User.patronymic, UpdateSourceTrigger=PropertyChanged}" Width="100"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Номер телефона:" HorizontalAlignment="Center" Margin="0 20 0 0"/>
+                    <TextBox x:Name="phone"  Text="{Binding User.phone, UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel>
+                        <TextBlock Text="Логин:" HorizontalAlignment="Center" Margin="0 20 0 0"/>
+                        <TextBox x:Name="login" Text="{Binding User.login, UpdateSourceTrigger=PropertyChanged}" Width="140"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Пароль:" HorizontalAlignment="Center" Margin="0 20 0 0"/>
+                        <TextBox x:Name="password" Text="{Binding User.password, UpdateSourceTrigger=PropertyChanged}" Width="140"/>
+                    </StackPanel>
+                </StackPanel>
+                <Button Content="Применить изменить" Height="30" Margin="0 50 0 0" Command="{Binding SaveDataBase, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

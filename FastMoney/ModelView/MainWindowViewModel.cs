@@ -49,9 +49,9 @@ namespace FastMoney.ModelView
         #endregion
 
         #region NameClient
-        private string _NameClient = App.user.FullName;
+        private User _NameClient = App.user;
 
-        public string NameClient { get => _NameClient; set => Set(ref _NameClient, value); }
+        public User NameClient { get => _NameClient; set => Set(ref _NameClient, value); }
         #endregion
 
         #region Wallet

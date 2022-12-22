@@ -21,7 +21,7 @@ namespace FastMoney.ModelView
         #region Selected
         private Request selected;
 
-        public Request Selected { get => selected; set => Set(ref selected, value); } 
+        public Request Selected { get => selected; set => Set(ref selected, value); }
         #endregion
         #endregion
 

@@ -15,7 +15,10 @@ namespace FastMoney.Commands
         public override void Execute(object parameter)
         {
             new AutorizationRegistration().Show();
-            MainWindow.Instanse.Close();
+            if (MainWindow.Instanse != null)
+                MainWindow.Instanse.Close();
+            if (ManagerWindow.Instance != null)
+                ManagerWindow.Instance.Close();
         }
     }
 }

@@ -98,9 +98,11 @@
     <Compile Include="Classes\CreditScheduleClass.cs" />
     <Compile Include="Commands\Deautorization.cs" />
     <Compile Include="Commands\DragMoveCommand.cs" />
+    <Compile Include="Commands\EditUserCommand.cs" />
     <Compile Include="Commands\GoAutorizationPage.cs" />
     <Compile Include="Commands\GoRegistrtionPage.cs" />
     <Compile Include="Commands\MinimazeWindowCommandAuth.cs" />
+    <Compile Include="ModelView\EditUserModelView.cs" />
     <Compile Include="ModelView\GoAutorizationPage.cs" />
     <Compile Include="ModelView\ManagerWindowModelView.cs" />
     <Compile Include="Model\Request.cs">
@@ -121,6 +123,9 @@
     </Compile>
     <Compile Include="View\Windows\CardSelection.xaml.cs">
       <DependentUpon>CardSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\EditUser.xaml.cs">
+      <DependentUpon>EditUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Windows\ManagerWindow.xaml.cs">
       <DependentUpon>ManagerWindow.xaml</DependentUpon>
@@ -171,6 +176,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Windows\CardSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\EditUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

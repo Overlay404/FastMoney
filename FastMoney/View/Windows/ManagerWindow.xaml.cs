@@ -25,6 +25,7 @@ namespace FastMoney.View.Windows
         {
             InitializeComponent();
             Instance = this;
+            InfoText();
         }
 
         private void ImageAwesome_MouseUp(object sender, MouseButtonEventArgs e)
@@ -42,6 +43,7 @@ namespace FastMoney.View.Windows
             });
             App.db.SaveChanges();
             ListRequest.ItemsSource = App.db.Request.Where(r => r.status == true).ToList();
+            InfoText();
         }
 
         private void ImageAwesome_MouseUp_1(object sender, MouseButtonEventArgs e)
@@ -49,6 +51,7 @@ namespace FastMoney.View.Windows
             ChangedDataBase("Не одобрен");
             App.db.SaveChanges();
             ListRequest.ItemsSource = App.db.Request.Where(r => r.status == true).ToList();
+            InfoText();
         }
         private void ChangedDataBase(string text)
         {
@@ -56,6 +59,19 @@ namespace FastMoney.View.Windows
             request.status = false;
             App.credit = App.db.Credit.Where(c => c.id == request.CreditId).FirstOrDefault();
             App.credit.status = text;
+        }
+        private void InfoText()
+        {
+            if (ListRequest.Items.Count == 0)
+            {
+                infoText.Text = "В данный момент заявок которые необходимо обработать";
+                BorderSelectedItem.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                infoText.Text = "";
+                BorderSelectedItem.Visibility = Visibility.Visible;
+            }
         }
     }
 }

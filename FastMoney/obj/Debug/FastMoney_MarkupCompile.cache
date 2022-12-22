@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\232002\Source\Repos\FastMoney\FastMoney\obj\Debug\
+C:\Users\Overlay\Source\Repos\FastMoney2\FastMoney\obj\Debug\
 FastMoney
 none
 false
 DEBUG;TRACE
-C:\Users\232002\Source\Repos\FastMoney\FastMoney\App.xaml
-152062171487
+C:\Users\Overlay\Source\Repos\FastMoney2\FastMoney\App.xaml
+16-2132279252
 2-456683589
-541684145807
-132-841292750
-Style\StyleMainWindow.xaml;View\Pages\Autorization.xaml;View\Pages\CardAddPage.xaml;View\Pages\CreditPage.xaml;View\Pages\MainPage.xaml;View\Pages\PayPage.xaml;View\Pages\Registration.xaml;View\Pages\TransferPage.xaml;View\Windows\AutorizationRegistration.xaml;View\Windows\CardSelection.xaml;View\Windows\MainWindow.xaml;View\Windows\ManagerWindow.xaml;View\Windows\PayWindow.xaml;View\Windows\ScheduleCredit.xaml;View\Windows\ScheduleCreditPay.xaml;
+57682536489
+1321696211087
+Style\StyleMainWindow.xaml;View\Pages\Autorization.xaml;View\Pages\CardAddPage.xaml;View\Pages\CreditPage.xaml;View\Pages\MainPage.xaml;View\Pages\PayPage.xaml;View\Pages\Registration.xaml;View\Pages\TransferPage.xaml;View\Windows\AutorizationRegistration.xaml;View\Windows\CardSelection.xaml;View\Windows\EditUser.xaml;View\Windows\MainWindow.xaml;View\Windows\ManagerWindow.xaml;View\Windows\PayWindow.xaml;View\Windows\ScheduleCredit.xaml;View\Windows\ScheduleCreditPay.xaml;
 
 False
 
