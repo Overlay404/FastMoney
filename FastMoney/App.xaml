@@ -1,9 +1,0 @@
-﻿<Application x:Class="FastMoney.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:FastMoney"
-             StartupUri="View\Windows\AutorizationRegistration.xaml">
-    <Application.Resources>
-        <ResourceDictionary Source="Style\StyleMainWindow.xaml"/>
-    </Application.Resources>
-</Application>
